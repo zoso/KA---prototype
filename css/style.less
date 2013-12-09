@@ -344,14 +344,27 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 		min-height: 424px;
 		background-color:#ababab; 
 		background-image:url(../img/masthead.jpg); 
-		background-size:cover; 
+		background-repeat: no-repeat; 
+		/*-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size:cover; */
 		background-position:top center;
+		-webkit-background-size: 100%; 
+	    -moz-background-size: 100%; 
+	    -o-background-size: 100%; 
+	    background-size: 100%; 
+	    -webkit-background-size: cover; 
+	    -moz-background-size: cover; 
+	    -o-background-size: cover; 
+	    background-size: cover; 
+	    /*background-attachment: fixed;*/
 		.clearfix();
 		.vision {
 			background-color: rgb(70,157,201); /* IE8 */
 			background-color: rgba(70,157,201,0.9);
 			color: #fff;
-						margin-top: 30px;
+			margin-top: 30px;
 			.center-block();
 			width: 320px;
 			text-align: left;
@@ -370,14 +383,17 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 		width: inherit;
 		bottom: 0;
 		/*height: 100px;*/
+		border-bottom: 1px solid white;
 		background: @darkGrey;
 		color: #fff;
-		padding: 20px 30px;
+		/*padding: 20px 30px;*/
 		ul {
 			width: 100%;
-
+			a:hover {
+				text-decoration: underline;
+			}
 			li {
-				width: 33.33%;
+				width: 29.33%;
 				display: block;
 				float: left;
 				h3 {
@@ -400,7 +416,8 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 							margin-right: 6px;
 							color: rgb(83, 183, 232);
 							border-right: 1px solid rgba(255, 255, 255, 0.2);
-						}
+						} 
+
 					}
 					/*li:after {
 						content: "|";
@@ -559,10 +576,10 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 }*/
 
 @media only screen and (max-width: 1023px) {
-	.wrapper {
+	/*.wrapper {
 		width: 100%;
-		/*margin: 0 auto;*/
-	}
+		/*margin: 0 auto;
+	}*/
 }
 
 @media only screen and (max-width: 479px) {
