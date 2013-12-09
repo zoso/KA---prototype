@@ -1,0 +1,451 @@
+/* tiles */
+
+/*
+	1x1
+		- whole container
+	1x2
+		- one large two small
+	1x3
+		- one large 
+	- small
+	- medium
+		- 
+	
+
+	- themes:
+		- black/white (bg/text)
+		- white/black (bg/text)
+		- blue/white (bg/text)
+
+- focusAreas
+
+
+http://3960.org/sandbox/dummy-mixins.php
+*/
+/*#popoverArrow {
+  .top(@arrowWidth: 5px) {
+    bottom: 0;
+    left: 50%;
+    margin-left: -@arrowWidth;
+    border-left: @arrowWidth solid transparent;
+    border-right: @arrowWidth solid transparent;
+    border-top: @arrowWidth solid @black;
+  }
+  .left(@arrowWidth: 5px) {
+    top: 50%;
+    right: 0;
+    margin-top: -@arrowWidth;
+    border-top: @arrowWidth solid transparent;
+    border-bottom: @arrowWidth solid transparent;
+    border-left: @arrowWidth solid @black;
+  }
+  .bottom(@arrowWidth: 5px) {
+    top: 0;
+    left: 50%;
+    margin-left: -@arrowWidth;
+    border-left: @arrowWidth solid transparent;
+    border-right: @arrowWidth solid transparent;
+    border-bottom: @arrowWidth solid @black;
+  }
+  .right(@arrowWidth: 5px) {
+    top: 50%;
+    left: 0;
+    margin-top: -@arrowWidth;
+    border-top: @arrowWidth solid transparent;
+    border-bottom: @arrowWidth solid transparent;
+    border-right: @arrowWidth solid @black;
+  }
+}*/
+
+
+.arrow_box { 
+   /* position: absolute; */
+    background: none;
+    /*border: 1px solid #fff; */
+    z-index: 101; 
+} 
+.arrow_box:after, 
+.arrow_box:before { 
+    right: 100%; 
+    top: 50px; 
+    border: solid transparent; 
+    content: " "; 
+    height: 0; 
+    width: 0; 
+    position: absolute; 
+    pointer-events: none; 
+} 
+.arrow_box:after { 
+    border-color: none;
+    border-right-color: #efefef; 
+    border-width: 15px; 
+    margin-top: -15px; 
+} 
+.arrow_box:before { 
+    border-color: none;
+    border-right-color: #efefef; 
+    border-width: 21px; 
+    margin-top: -21px; 
+}
+
+
+
+
+/* mixins */
+.center-block() {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*.getTileSize(@type: "small") {
+
+}*/
+
+.box-sizing(@sizing) {
+    -moz-box-sizing: @sizing;
+    -webkit-box-sizing: @sizing;
+    box-sizing: @sizing;
+}
+
+.size(@width, @height) {
+	width: @width;
+	height: @height;
+}
+
+.square(@size) {
+  	.size(@size, @size);
+}
+
+/* variables - use % */
+
+@maxWidth: 100%; /* 1024px */
+
+@smallTile: @maxWidth/4;
+@mediumTile: @maxWidth/2;
+@mediumTile2: @maxWidth - @smallTile;
+@bigTile: @maxWidth; 
+@height: 256px;
+@height2x: 512px;
+/* css */
+
+/* Focus areas - in percent */
+.focus {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    background: #ededed;
+    outline: 2px solid #fff;
+    /*outline: 1px solid #333;*/
+}
+
+.small1x { /* 1 small box - 2 small boxes  */
+    width: @mediumTile;
+    height: @height;
+    .tile {
+        width: @bigTile;
+        height: @bigTile;
+        background: #d2d2d2;
+    }
+}
+
+.small2x {
+    width: @mediumTile;
+    height: @height;
+    .tile {
+        width: @mediumTile;
+        height: @bigTile;
+    }
+}
+
+.small2xV { /* 2 small boxes vertically */
+    width: @smallTile;
+    height: @height*2;
+    .tile {
+        width: @bigTile;
+        height: @mediumTile;
+    }
+}
+
+.big2x { /* 2 boxes horizontal */
+    width: @mediumTile;
+    height: @height*2;
+    .tile {
+        width: @bigTile;
+        height: @bigTile;
+    }
+}
+
+.big2x1 { /* 1 big box above/under 2 boxes */
+    width: @mediumTile;
+    height: @height*2;
+    .tile {
+        width: @bigTile;
+        height: @mediumTile;
+    }
+}
+
+.big3x {
+    width: @mediumTile2;
+    height: @height*2;
+    .tile {
+        width: @bigTile;
+        height: @bigTile;
+    }
+}
+
+
+
+.focus-big1x { /* 1 big boxes */
+
+}
+
+
+
+
+
+
+
+.focus-big4x { /* 4 boxes */
+
+}
+
+/* themes */
+
+
+.focus-small { 
+    position: relative;
+    width: @mediumTile;
+    height: @smallTile;
+    background: #ff3344;
+    float: left;
+    outline: 1px solid #222;
+    overflow: hidden;
+}
+
+.focus-medium {
+    position: relative;
+    width: @mediumTile;
+    height: @mediumTile;
+    background: #ee34c3;
+    float: left;
+    outline: 1px solid #333;
+    overflow: hidden;
+}
+
+.focus-medium3x {
+    position: relative;
+    width: @mediumTile2;
+    height: @mediumTile;
+    background: lighten(#ff3344, 30%);
+    float: left;
+    /*outline: 1px solid #ffeeff;*/
+    overflow: hidden;
+}
+
+.focus-small-v {
+    position: relative;
+    width: @smallTile;
+    height: @mediumTile;
+    background: lighten(#555, 20%);
+    float: left;
+    /*outline: 1px solid darken(#555, 10%);*/
+    overflow: hidden;
+}
+
+.focus-big {
+    position: relative;
+    width: @bigTile;
+    height: @mediumTile;
+    background: #99ee33;
+    float: left;
+    /*outline: 1px solid #333;*/
+    overflow: hidden;
+}
+
+/* knekken */
+.focus .tile:last-child:after {
+    display:block;
+    content:" ";
+    width:30px;
+    height:30px;
+    position:absolute;
+    right:0;
+    bottom:0;
+    background-image:url(../img/knekken.png);
+    background-size:100%;
+    z-index: 50;
+}
+
+/* tiles */
+.tile {
+    position: relative;
+    background: #efefef;
+   /* outline: 2px solid #fff;*/
+    float: left;
+    overflow: hidden;
+    .tileName {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        /*color: #fff;*/
+        z-index: 1;
+        font-size: 0.8em;
+    }
+    .tileImg img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+    .tileContent {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        /*width: 90%;*/
+        min-height: 80px;
+        padding: 10px;
+        font-size: 2em;
+        z-index: 2;
+    }
+}
+
+
+
+/* themes */
+.black {
+    color: #fff;
+    .tileContent {
+        background: #000;
+        .background-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.8));
+    }
+}
+
+.white {
+    color: #000;
+    .tileContent {
+        background: #fff;
+        .background-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.8));
+    }
+}
+
+.blue {
+    color: #fff;
+    background: @lightBlue;
+    .tileContent {
+        
+        position: absolute;
+        /*left: 10px;
+        bottom: 10px;
+        width: 80%;*/
+        top: auto;
+        bottom: 0px;
+        /*padding: 20px 30px;*/
+        background: @lightBlue;
+        
+        text-align: left;
+    }
+    .tileName {
+        display: none;
+    }
+}
+
+.blueSquare {
+    color: #fff;
+    .tileContent {
+        
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        background: @lightBlue;
+        padding: 40px;
+        .square(220px);
+        opacity: 0.9;
+    }
+}
+
+.blueOverlay {
+    color: #fff;
+    .tileContent {
+       
+        position: absolute;
+        /*left: 20px;
+        right: 20px;
+        bottom: 20px;*/
+        background: @lightBlue;
+        padding: 40px;
+        width: @height2x - 120;
+        opacity: 0.9;
+    }
+}
+
+.blueInfo {
+    color: #fff;
+    background: @lightBlue;
+    .tileName {
+        display: none;
+    }
+    .tileContent {
+        
+        position: relative;
+        /*position: absolute;
+        left: 20px;
+        bottom: 20px;
+        background: @lightBlue;
+        padding: 40px;
+        .square(220px);
+        opacity: 0.9;*/
+        li {
+            font-size: 0.5em;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.image {
+    .tileContent,
+    .tileName {
+        display: none;
+    }   
+}
+
+.iframe iframe {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #efefef;
+}
+
+.arrow {
+    overflow: visible;
+    /*position: absolute;
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; 
+    
+    border-right:10px solid blue; */
+}
+
+@media only screen and (max-width: 1023px) {
+    .focus-big {
+        width: 100%;
+        height: auto;
+    }
+    .tile-big {
+        width: 100%;
+        height: auto; /* IE 8 - not working */
+        /*height: 50%;*/
+    }
+
+    .big2x {
+        width: @bigTile;
+    }
+}
