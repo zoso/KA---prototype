@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Article</title>
+</head>
+<body>
+	<div id="top" class="wrapper">
+		<div class="menuContainer">
+			<nav id="mainNav" style="display: none;" class="wrapper">
+				<ul class="languageSelect">
+					<li><a class="selected" href="#">English</a></li>
+					<li><a href="#">中国的</a></li>
+					<li><a href="#">français</a></li>
+				</ul>
+				<ul class="level1">
+					<li class="selected">
+						<a href="landingPage_products-and-services.html">Products &amp; Services</a>
+						<ul class="level2">
+							<li><a class="selected" href="#">Commercial Vehicles</a></li>
+							<li><a href="#">Passenger Cars</a></li>
+							<li><a href="#">Off-Highway Vehicles</a></li>
+							<li><a href="#">Aftermarket</a></li>
+							<li><a href="#">Power Electronics</a></li>
+							<li><a href="#">For our Suppliers</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="landingPage_careers.html" class="">Careers</a>
+						<ul class="level2">
+							<li><a href="#">Our People</a></li>
+							<li><a href="#">Management Programs</a></li>
+							<li><a href="#">Possibilities within KA</a></li>
+							<li><a href="#">Career Development</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="landingPage_innovation.html">Innovation</a>
+						<ul class="level2">
+							<li><a href="#">Case Studies</a></li>
+							<li><a href="#">Out Methodology</a></li>
+							<li><a href="#">Centers of Expertise</a></li>
+							<li><a href="#">Patent Management</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="landingPage_investor-relations.html">Investor Relations</a>
+						<ul class="level2">
+							<li><a href="#">Annual General Meeting</a></li>
+							<li><a href="#">Board &amp; Management</a></li>
+							<li><a href="#">Corporate Governance</a></li>
+							<li><a href="#">Events &amp; Presentations</a></li>
+							<li><a href="#">Reports</a></li>
+							<li><a href="#">Shareholders</a></li>
+						</ul>
+					</li>
+					<li>
+						<ul class="serviceMenu">
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Media &amp; News</a></li>
+							<li><a href="#">Contact us</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="menu">
+			<div class="menuButton"></div>
+			<div class="menuButtonTxt">MENU</div>
+		</div>	
+		<div class="breadContainer">
+			<div class="titleContainer">Title</div>
+			<div class="breadCroumbs">
+				<ul>
+					<li><a href="#">Path 1</a></li>
+					<li><a href="#">Path 2</a></li>
+					<li><a href="#">Path 3</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="logoContainer">
+			<a href="#">
+				<div id="logo"></div>
+			</a>
+		</div>
+	</div>
+<div class="subNav">
+		<div class="wrapper">
+			<ul>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- footer -->
+	<div id="footer">
+		<div class="topFooter">
+			<div class="wrapper">
+				<div class="contact">
+					<strong>Kongsberg Automotive</strong>
+					<br>
+					N-3611 Kongsberg Norway
+					<br>
+					Tel: <a href="tel:+4732770500">+4732770500</a>
+					<br>
+					Fax: +4732770509
+				</div>
+				<div class="about">
+					<p>
+						Kongsberg Automotive provides world class products to the global vehicle industry. Our products enhance the driving experience, making it safer, more comfortable and sustainable.		
+					</p>
+						We are PASSIONATE, ACCOUNTABLE, PREPARED
+				</div>
+				<div class="social">
+					FOLLOW US:
+					<br>
+					<img src="img/FB_FindUsOnFacebook-320.png" alt="Find us on facebook" width="50%" height="50%">
+					<br>
+					<img src="img/LinkedIn-Logo-2C (320).png" alt="Find us on LinkedIn" width="50%" height="50%">
+				</div>
+			</div>
+		</div>
+		<div class="langFooter">
+			<div class="wrapper">
+				<ul class="languageSelect clearfix">
+					<li><a class="selected" href="#">English</a></li>
+					<li><a href="#">中国的</a></li>
+					<li><a href="#">français</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script>
+	$(document).ready(function($) {
+		function menuControl() {
+			if ($("nav#mainNav").is(':visible')) {
+				$("nav#mainNav").fadeOut();
+			} else {
+				$("nav#mainNav").fadeIn();
+			}
+		}
+		$('#top .menuButton').click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			if ($(this).hasClass('active')) {
+				$(this).removeClass('active');
+			} else {
+				$(this).addClass('active');
+			}
+			menuControl();
+		});	
+		
+		$('html').click(function(e) {
+			var t = $(e.target);
+			if ($("nav#mainNav").is(':visible') && t.attr('id') != "mainNav") {
+				$("nav#mainNav").fadeOut();
+			}
+		});
+	});
+</script>
+</html>
