@@ -45,7 +45,7 @@
 							<li><a href="#">Patent Management</a></li>
 						</ul>
 					</li>
-					<li>
+					<li class="selected">
 						<a href="landingPage_investor-relations.html">Investor Relations</a>
 						<ul class="level2">
 							<li><a href="#">Annual General Meeting</a></li>
@@ -89,6 +89,8 @@
 	<!-- content -->
 	<div class="wrapper">
 		heading
+
+
 	</div>
 	<div class="subNav">
 		<div class="wrapper">
@@ -162,12 +164,29 @@
 			menuControl();
 		});	
 		
-		$('html').click(function(e) {
+		/*$('html').click(function(e) {
 			var t = $(e.target);
 			if ($("nav#mainNav").is(':visible') && t.attr('id') != "mainNav") {
 				$("nav#mainNav").fadeOut();
 			}
-		});
+		});*/
+	});
+
+	$(document).click(function(event) { 
+/*	    
+		var u = $(event.target).parentsUntil('nav');
+		console.log(u);*/
+
+	    var pEl = $(event.target).parents().map(function() {
+	    	return this.tagName;
+	    }).get().join( ", " );
+	    console.log(">>> "+pEl);
+
+	    if($(event.target).parents().index($('nav')) == -1) {
+	        if($('nav#mainNav').is(":visible")) {
+	            $('nav#mainNav').hide()
+	        }
+	    }        
 	});
 </script>
 </html>

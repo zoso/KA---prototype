@@ -1,5 +1,6 @@
 /* imports */
 @import 'tiles.less';
+@import 'arrow.less';
 /* Variables */
 
 @bgBodyCol: #fff; //lighten(@bgBodyCol, 10%) fadein(@bgBodyCol, 10%), fadeout , fade
@@ -57,6 +58,26 @@ a { text-decoration: none; outline: none; }
           box-shadow: @shadow;
 }
 
+
+/* test - switch */
+.myFunc(@dir) when (@dir = bottom) {
+	background: #330011;
+}
+
+.myFunc(@dir) when (@dir = left) {
+	background: #1e0011;
+}
+
+.myFunc(@dir) when (@dir = right) {
+	background: #aa0011;
+}
+
+.myFunc(@dir) when (@dir = top) {
+	background: #bb0011;
+}
+
+/* end mixins */
+
 .blockquote { 
 	font-family:inherit;
 	background-image:url(../img/gfx/quoteSign.png);
@@ -95,7 +116,6 @@ a { text-decoration: none; outline: none; }
 }
 
 /*	Resets	*/
-
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
 p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
 img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
@@ -170,6 +190,9 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 	border: 1px solid white;
 	min-height: 200px;
 }
+
+//.arrow(10px, #08C, bottom, 50%, 1px, darken(#08C, 10%))
+
 
 
 /* dom */
@@ -384,33 +407,36 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 		position: absolute;
 		width: inherit;
 		bottom: 0;
-		/*height: 100px;*/
 		border-bottom: 1px solid white;
 		background: @darkGrey;
 		color: #fff;
-		/*padding: 20px 30px;*/
-		ul {
-			width: 100%;
+		/*padding: 20px 0 30px 20px;*/
+		ul.subLevel1 {
+			.outline();
+			padding: 30px;
 			a:hover {
 				text-decoration: underline;
 			}
 			li {
-				width: 29.33%;
+				width: 30%;
 				display: block;
 				float: left;
+				
 				h3 {
-					font-size: 1.8em;
+					font-size: 1.5em;
 					line-height: 110%;
+					margin: 0.4em 0px;
 					a {
 						text-decoration: none;
 						color: #fff;
 					}
 				}
-				ul {
+				ul.subLevel2 {
 					display: block;
 					li {
 						width: auto;
 						display: inline-block;
+						line-height: 1.2em;
 						a {
 							padding: 0px 6px 0px 0px;
 							white-space: nowrap;

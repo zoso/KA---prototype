@@ -105,12 +105,12 @@
 		</div>
 		<div class="wrapper">
 			<div class="subMenu">
-				<ul>
+				<ul class="subLevel1">
 					<li>
 						<h3>
 							<a href="#">Commercial Vehicles</a>
 						</h3>
-						<ul>
+						<ul class="subLevel2">
 							<li><a href="">Cabin</a></li>
 							<li><a href="">Driveline</a></li>
 							<li><a href="">Chassis</a></li>
@@ -118,9 +118,9 @@
 					</li>
 					<li>
 						<h3>
-							<a href="#">Passanger Cars</a>
+							<a href="#">Passenger Cars</a>
 						</h3>
-						<ul>
+						<ul class="subLevel2">
 							<li><a href="">Cabin</a></li>
 							<li><a href="">Driveline</a></li>
 							<li><a href="">Chassis</a></li>
@@ -130,7 +130,7 @@
 						<h3>
 							<a href="#">Off-Road Vehicles</a>
 						</h3>
-						<ul>
+						<ul class="subLevel2">
 							<li><a href="">Cabin</a></li>
 							<li><a href="">Driveline</a></li>
 							<li><a href="">Chassis</a></li>
@@ -339,12 +339,20 @@
 			menuControl();
 		});	
 		
-		$('body').click(function(e) {
+		/*$('html').click(function(e) {
 			var t = $(e.target);
 			if ($("nav#mainNav").is(':visible') && t.attr('id') != "mainNav") {
 				$("nav#mainNav").fadeOut();
 			}
-		});
+		});*/
 	});
+
+	$(document).click(function(event) { 
+	    if($(event.target).parents().index($('nav#mainNav')) == -1) {
+	        if($('nav#mainNav').is(":visible")) {
+	            $('nav#mainNav').hide()
+	        }
+	    }        
+	})
 </script>
 </html>
