@@ -59,7 +59,7 @@
 @mediumTile: @maxWidth/2;
 @mediumTile2: @maxWidth - @smallTile;
 @bigTile: @maxWidth; 
-@height: 256px;
+@height: 25%;//256px;
 @height2x: 512px;
 /* css */
 
@@ -212,10 +212,15 @@
 }
 
 /* tiles */
+.tileRow {
+    /*.outline(#ff3300);*/
+    width: 100%;
+    clear: both;
+}
 .tile {
     position: relative;
     background: #efefef;
-   /* outline: 2px solid #fff;*/
+    outline: 1px solid #fff;
     float: left;
     overflow: hidden;
     .tileName {
@@ -231,6 +236,7 @@
         width: 100%;
         height: auto;
         max-width: 100%;
+        border-width: 0px;
         vertical-align: middle;
     }
     .tileContent {
@@ -241,8 +247,39 @@
         min-height: 80px;
         padding: 10px;
         font-size: 2em;
-        z-index: 2;
+        /*z-index: 2;*/
+        /*min-width: 100%;*/
     }
+}
+
+.tile1x1 {
+    width: @height;
+    height: @height;
+    max-height: 256px;
+}
+
+.tile2x1 {
+    width: @height*2;
+    height: @height;
+    max-height: 256px;
+}
+
+.tile2x2 {
+    width: @height*2;
+    height: @height*2;
+    max-height: 512px;
+}
+
+.tile3x2 {
+    width: @height*3;
+    height: @height*2;
+    max-height: 512px;
+}
+
+.tile4x2 {
+    width: @height*4;
+    height: @height;
+    max-height: 512px;
 }
 
 
@@ -368,18 +405,80 @@
     border-right:10px solid blue; */
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 767px) {
+    .tile1x1 {
+        width: @height*2;
+        height: @height*2;
+        /*max-height: 512px/3;*/
+    }
+
+    .tile2x1 {
+        width: 100%;
+        height: @height*4;
+        max-height: 512px/2;
+    }
+
+    .tile2x2 {
+        width: 100%;
+        height: @height/2;
+        /*max-height: 512px/3;*/
+    }
+
+    .tile3x2 {
+        width: 100%;
+        height: @height/2;
+        /*max-height: 512px/3;*/
+    }
+
+    .tile4x2 {
+        width: 100%;
+        height: @height;
+       /* max-height: 512px/2;*/
+    }
+    /*@height: 25%;
     .focus {
         width: 100%;
         height: auto;
-    }
-    .tile {
+    }*/
+    /*.tile {
         width: 100%;
         height: auto; /* IE 8 - not working */
-        /*height: 50%;*/
+        /*height: 50%;
     }
 
     .big2x {
         width: @bigTile;
+    }*/
+}
+
+@media only screen and (max-width: 479px) {
+    .tile1x1 {
+        width: 100%;
+        height: 100%;
+        /*max-height: 512px/3;*/
+    }
+
+    .tile2x1 {
+        width: 100%;
+        height: 100%;
+        /*max-height: 512px/2;*/
+    }
+
+    .tile2x2 {
+        width: 100%;
+        height: 100%;
+        /*max-height: 512px/3;*/
+    }
+
+    .tile3x2 {
+        width: 100%;
+        height: 100%;
+        /*max-height: 512px/3;*/
+    }
+
+    .tile4x2 {
+        width: 100%;
+        height: 100%;
+       /* max-height: 512px/2;*/
     }
 }

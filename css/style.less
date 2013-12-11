@@ -94,7 +94,7 @@ a { text-decoration: none; outline: none; }
 	outline: 1px solid @col;
 }
 
-.clearfix() {
+.clearfix {
 // http://nicolasgallagher.com/micro-clearfix-hack/
     *zoom: 1; // for oldIE
 
@@ -160,7 +160,9 @@ ul {
 a, a:visited { color:#469CC9; text-decoration: underline; }
 
 .wrapper {
-	width: @wrapperWidth;
+	/*width: @wrapperWidth;*/
+	position: relative;
+	max-width: @wrapperWidth;
 	margin: 0 auto;
 }
 
@@ -531,6 +533,9 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 		li:after { 
 			content:"|"; color: #ddd; 
 		}
+		li:last-child:after {
+			content: " ";
+		}
 	}
 }
 
@@ -606,7 +611,7 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 @media only screen and (max-width: 1025px) {
 	@wrapperWidth: 100%;
 	ul {
-		.outline();
+		/*.outline();*/
 	}
 	.wrapper {
 		width: 100%;
