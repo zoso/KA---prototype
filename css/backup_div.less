@@ -1,0 +1,130 @@
+/*
+  Jeg har vært i kontakt med Oslo Market Solutions, som leverer IR webtjenester til oss i dag. De har mange moduler vi kan benytte, se oversikt her:
+http://ir.asp.manamind.com/?key=kongsbergautomotive
+
+Kan vi benytte en av disse til toppen av siden?
+1. http://ir.asp.manamind.com/irn/portal/component;jsessionid=6DACD9D574DCB9C729774D8274DA14CF?component=snapshot&key=kongsbergautomotive&lang=en&
+2. http://ir.asp.manamind.com/products/html/graphImage.do;jsessionid=6DACD9D574DCB9C729774D8274DA14CF?key=kongsbergautomotive&lang=en
+3. http://ir.asp.manamind.com/products/html/graphInteractive.do;jsessionid=6DACD9D574DCB9C729774D8274DA14CF?key=kongsbergautomotive&lang=en
+4. http://ir.asp.manamind.com/irn/portal/component;jsessionid=6DACD9D574DCB9C729774D8274DA14CF?component=graphInteractive&key=kongsbergautomotive&lang=en&
+
+Grafene bruker ikke Flash, slik at den virker på iOS-devicer. Vedlagt ligger en implementation guide.
+
+Vi har forpliktet oss til å betale for TOP20IR fram til Januar 2015, så denne bør vi inkludere på en underside: http://ir.asp.manamind.com/products/html/brokerStats.do;jsessionid=2E2E984577EC23078D062CDEA68E0413?key=kongsbergautomotive&lang=en
+*/
+  /*.tile-medium:after {
+    outline: 1px solid #333;
+    display:block;
+    content:" ";
+    width:30px;
+    height:30px;
+    position:absolute;
+    right:0;
+    bottom:0;
+    background-image:url(../img/knekken.png);
+    background-size:100%;
+  }
+
+.tile-small {
+    position: relative;
+    /*.square(@mediumTile);*/
+    width: @mediumTile;
+    height: @bigTile;
+    background: #d2d;
+    float: left;
+    outline: 2px solid #fff;
+
+    .tileName {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        /*color: #fff;*/
+        z-index: 1;
+        font-size: 0.8em;
+    }
+    img {
+        position: relative;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+        /*max-height: 100%;*/
+    }
+    .tileContent {
+        /*background: #000;
+        .background-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.8));*/
+        position: absolute;
+        bottom: 1px;
+        width: 100%;
+       /* color: #fff;*/
+        min-height: 80px;
+        padding: 10px;
+        font-size: 2em;
+        z-index: 2;
+    }
+}
+
+.tile-small2x {
+    position: relative;
+    width: @bigTile;
+    height: @bigTile;
+    background: #ededed;
+    float: left;
+    outline: 2px solid #fff;
+}
+
+.tile-medium {
+    position: relative;
+    .square(@mediumTile);
+    background: lighten(#333, 80%);
+    float: left;
+}
+
+.tile-big {
+    width: @bigTile;
+    height: @mediumTile;
+    background: #e3e3e3;
+    float: left;
+    outline: 2px solid #fff;
+    display: block;
+    .tileName {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        /*color: #fff;*/
+        z-index: 1;
+        font-size: 0.8em;
+    }
+    img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+        /*max-height: 100%;*/
+    }
+    .tileContent {
+        /*background: #000;
+        .background-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.8));*/
+        position: absolute;
+        bottom: 1px;
+        width: 100%;
+       /* color: #fff;*/
+        min-height: 80px;
+        padding: 10px;
+        font-size: 2em;
+        z-index: 2;
+    }
+}
+
+.tile-box {
+    width: @mediumTile2;
+    height: @smallTile;
+    background: #dde;
+    .box-sizing(@smallTile);
+    float: left;
+    outline: 2px solid #fff;
+}
+
+
+  */
+

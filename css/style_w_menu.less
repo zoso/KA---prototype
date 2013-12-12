@@ -1,10 +1,18 @@
 /* imports */
-@import '0_vars.less';
 @import 'tiles.less';
 @import 'arrow.less';
 /* Variables */
 
+@bgBodyCol: #fff; //lighten(@bgBodyCol, 10%) fadein(@bgBodyCol, 10%), fadeout , fade
+@bodyFontCol: #555;
+@lightBlue: rgb(102,155,200);	
+@darkGrey: rgb(52,52,53);
+@mediumGrey: rgb(240,241,242);
+@mapGrey: rgb(211,212,212);
+@footerGrey: rgb(211,212,213);
 
+
+@wrapperWidth: 1024px;
 
 /*
 
@@ -195,124 +203,80 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 	margin-top: 10px;
 	.menuContainer {
 		position: relative;
-		nav#mainNav {
+		/*#mainNav { 
+			display: none; 
 			position: absolute;
 			z-index: 99;
 			left: 0px; 
 			top: -10px; 
 			right: 0px; 
-			padding: 10px 20px;
-			background-color: rgba(235,236,237,1.00);
+			padding:10px 0;
+			background-color: rgba(235,236,237,1.00);  
 			.box-shadow(0px 3px 9px 0px rgba(65,64,66,0.50));
-			ul {
-				list-style-type: none;
-				padding: 0;
-				margin: 0;
-			}
-			li {
-				/*float: left;
-				display: block;*/
-				/*padding: 5px;*/
-			}
-			a {
-				display: block;
-				color: #222;
-				text-decoration: none;
-				padding: 8px 0 10px 10px;
-				margin-bottom: 10px;
-			}
-			ul.level1 {
-				/*outline: 1px solid #434;*/
-				border-top: 1px solid rgb(221, 221, 221);
+			> ul {
 				padding-top: 10px;
-				margin-top: 60px;
-				li {
-					width: 20%;
-					float: left;
-					margin-bottom: 10px;
-					a {
-						/**/
-						color: #222;
-						font-size: 1em;
-						transition: background @transTime ease-in;  
-						font-weight: bold;
-					}
-					a.selected {
-						background-color: rgba(70, 157, 201, 0.9);
-						color: rgb(255, 255, 255);
-					}
-					a:hover, a:focus {
-						color: #000;
-						background: #bbb;
-					}
-					ul.level2 {
-						/*background: #eee211;*/
-						li {
-							width: 100%;
-							display: block;
-							margin-bottom: 0;
-							/*background: #aaaddd;*/
-							a {
-								color: #222;
-								/*width: 100%;*/
-								margin: 0;
-								transition: background @transTime ease-in;
-								font-weight: normal;
-								font-size: .9em;
-							}
-							a.selected {
-								/*width: 100%;*/
-								color: #fff;
-								background: #bbb;
-							}
-							a:hover, a:focus {
-								background: #bbb;
-							}
-						}
-					}
-					ul.serviceMenu {
-						/*background: #aa9922;*/
-						li {
-							/*outline: 1px solid #aa4400;*/
-							width: 100%;
-							a {
-
-							}
-						}
-					}
-				}
-				li.selected {
-					/*outline: 1px solid #ff2200;	*/
-					
-					background-color: rgba(130, 131, 132, 0.1);
-					ul {
-						background-color: rgba(130, 131, 132, 0.1);
-					}
-				}
 			}
-
+			
 			ul.languageSelect {
 				position: absolute;
 				right: 20px;
 				top: 10px;
 				li {
 					float: left;
-					display: block;
 					a {
+						display: block;
+						color: rgb(34, 34, 34);
+						text-decoration: none;
 						padding: 7px 12px;
-						font-size: .9em;
+						font-size: 0.9em;
 					}
 					a.selected {
-						background-color: #e2e3e4;
+						background: rgb(226, 227, 228);
 					}
 				}
 			}
-			ul.languageSelect:after {
-				clear: both;
-				content: " ";
+			ul.level1 {
+				.clearfix();
+				margin-top: 60px;
+				padding: 10px 20px; 
 				display: block;
+				border-top: 1px solid rgb(221, 221, 221);
+				li {
+					display: block;
+					width: 20%;
+					float: left;
+					a {
+						display: block;
+						margin-bottom: 10px;
+						text-decoration: none;
+					}
+					a.selected {
+						font-weight: bold;
+					}
+					ul.level2 {
+						li {
+							display: block;
+						}
+					}
+				}
 			}
-		}
+			ul.level2 {
+				display: block;
+				li {
+
+					width: 200px;
+					display: block;
+				}
+			}
+			ul.serviceMenu {
+				display: block;
+				li {
+
+					width: 200px;
+					display: block;
+				}
+			}
+		}*/
 	}
 	
 	.menu {
@@ -340,7 +304,7 @@ a, a:visited { color:#469CC9; text-decoration: underline; }
 		.menuButton:hover {
 			background-color: rgba(100,102,104,1.00);
 		}
-		.menuButton.active {
+		.menuButton .active {
 			background-color: #aaa;
 		}
 		.menuButtonTxt {

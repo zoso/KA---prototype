@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/menu.css">
 	<title>Article</title>
 </head>
 <body>
@@ -15,10 +16,10 @@
 					<li><a href="#">中国的</a></li>
 					<li><a href="#">français</a></li>
 				</ul>
-				<ul class="level1">
-					<li >
+				<ul class="level1 clearfix">
+					<li class="selected">
 						<a class="selected" href="#">Products &amp; Services</a>
-						<ul class="level2">
+						<ul class="level2 clearfix">
 							<li><a class="selected" href="#">Commercial Vehicles</a></li>
 							<li><a href="#">Passenger Cars</a></li>
 							<li><a href="#">Off-Highway Vehicles</a></li>
@@ -29,7 +30,7 @@
 					</li>
 					<li>
 						<a href="#" class="">Careers</a>
-						<ul class="level2">
+						<ul class="level2 clearfix">
 							<li><a href="#">Our People</a></li>
 							<li><a href="#">Management Programs</a></li>
 							<li><a href="#">Possibilities within KA</a></li>
@@ -57,7 +58,7 @@
 						</ul>
 					</li>
 					<li>
-						<ul class="serviceMenu">
+						<ul class="serviceMenu clearfix">
 							<li><a href="#">About us</a></li>
 							<li><a href="#">Media &amp; News</a></li>
 							<li><a href="#">Contact us</a></li>
@@ -88,77 +89,7 @@
 	</div>
 	<!-- content -->
 	<div id="content" class="wrapper clearfix">
-		<div class="tileRow clearfix">
-			<div class="tile tile1x1 white">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div>
-			<div class="tile tile1x1 black">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div>
-			<div class="tile tile1x1">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div>
-			<div class="tile tile1x1">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div>
-		</div>
-		<p>Row</p>
-		<div class="tileRow clearfix">
-			<div class="tile tile4x2 white">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div>
-		</div>
-		<p>row</p>
-		<div class="tileRow clearfix">
-			<div class="tile tile2x2 black">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div>
-			<div class="tile tile2x1 white">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div>
-			<div class="tile tile1x1 white">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div>
-			<div class="tile tile1x1 white">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div>
-		</div>
+		Content
 	</div>
 	<div class="subNav">
 		<div class="wrapper">
@@ -214,24 +145,53 @@
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script>
 	$(document).ready(function($) {
-		function menuControl(el) {
-			el.hasClass('active') ? el.removeClass('active') : el.addClass('active');
-			$('nav#mainNav').is(':visible') ? $("nav#mainNav").fadeOut() : $("nav#mainNav").fadeIn();
+		function menuControl() {
+			if ($("nav#mainNav").is(':visible')) {
+				$("nav#mainNav").fadeOut();
+			} else {
+				$("nav#mainNav").fadeIn();
+			}
 		}
 		$('#top .menuButton').click(function(e) {
 			e.preventDefault();
-			e.stopPropagation();	
-			menuControl($(this));
+			e.stopPropagation();
+			if ($(this).hasClass('active')) {
+				$(this).removeClass('active');
+			} else {
+				$(this).addClass('active');
+			}
+			menuControl();
 		});	
+		
 	});
-	$(document).click(function(e) {
-		if ($("nav#mainNav").is(':visible')) {
-			var isNav = $(e.target).parents().index($('.menuContainer'));
-		    if (isNav == -1) {
-		    	$('nav#mainNav').fadeOut();
-		    }
-		}
+
+	$(document).click(function(e) { 
+/*	    
+		var u = $(event.target).parentsUntil('nav');
+		console.log(u);*/
+
+	    /*var pEl = $(e.target).parents().map(function() {
+	    	console.log("---> "+this.className+" > "+this.id);
+	    	return this.tagName;
+	    }).get().join( ", " );
+	    console.log(">>> "+pEl+ " > ");*/
+
+	    
+	    var isNav = $(e.target).parents().index($('.menuContainer'));
+
+	    console.log("isNav: "+isNav);
+
+	    if (isNav == -1) {
+	    	if ($('nav#mainNav').is(":visible")) {
+	    		$('nav#mainNav').fadeOut();
+	    	}
+	    }
+
+	    /*if(ev.parents().index($('nav')) == -1) {
+	        if($('nav#mainNav').is(":visible")) {
+	            $('nav#mainNav').fadeOut()
+	        }
+	    }*/        
 	});
-	
 </script>
 </html>
