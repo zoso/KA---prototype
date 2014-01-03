@@ -1,61 +1,10 @@
 /* imports */
 @import '0_vars.less';
-@import '1_fonts.less';
+@import '01_mixins.less';
+@import '03_fonts.less';
+@import '02_sprites.less';
 @import 'tiles.less';
 @import 'arrow.less';
-/* Variables */
-
-
-
-/*
-
-linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.8) 100%) repeat scroll 0% 0% transparent;
-
-*/
-
-/* hacks */
-/*
-a { text-decoration: none; outline: none; }
-
-*/
-
-
-
-/* mixins */
-.background-gradient(@start, @stop) {
-	background: mix(@start, @stop, 50%);
-	background: -webkit-gradient(linear, left top, left bottom, from(@start), to(@stop));
-	background: -webkit-linear-gradient(top, @start, @stop);
-	background: -moz-linear-gradient(top, @start, @stop);
-	background: -o-linear-gradient(top, @start, @stop);
-	background: linear-gradient(to bottom, @start, @stop);
-}
-
-.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
-  -webkit-box-shadow: @shadow;
-     -moz-box-shadow: @shadow;
-          box-shadow: @shadow;
-}
-
-
-/* test - switch */
-.myFunc(@dir) when (@dir = bottom) {
-	background: #330011;
-}
-
-.myFunc(@dir) when (@dir = left) {
-	background: #1e0011;
-}
-
-.myFunc(@dir) when (@dir = right) {
-	background: #aa0011;
-}
-
-.myFunc(@dir) when (@dir = top) {
-	background: #bb0011;
-}
-
-/* end mixins */
 
 .blockquote { 
 	font-family:inherit;
@@ -68,53 +17,6 @@ a { text-decoration: none; outline: none; }
 	border-left: none;
 	font-style: normal;
 }
-
-.outline(@col: #000) {
-	outline: 1px solid @col;
-}
-
-.clearfix {
-// http://nicolasgallagher.com/micro-clearfix-hack/
-    *zoom: 1; // for oldIE
-
-    &:before,
-    &:after {
-        content: "";
-        display: table;
-    }
-
-    &:after{
-        clear: both;
-    }
-}
-
-.center-block() {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-/*	Resets	*/
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
-p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
-img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
-dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figure, figcaption, hgroup, 
-menu, footer, header, nav, section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-article, aside, canvas, figure, figure img, figcaption, hgroup,
-footer, header, nav, section, audio, video {
-	display: block;
-}
-
-/* operations */
-
-/* functions */
 
 /* start css */
 
@@ -145,6 +47,14 @@ img {
     vertical-align: middle;
 }
 
+/* edit EPiServer */
+.editDiv {
+	position: absolute;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+}
+
 .wrapper {
 	/*width: @wrapperWidth;*/
 	position: relative;
@@ -153,6 +63,12 @@ img {
 }
 
 /* buttons */
+.button {
+	display: inline-block;
+	padding: 4px 8px;
+	border: 1px solid rgb(255, 255, 255);
+	background-color: rgb(255, 255, 255);
+}
 .button.large {
 	position: relative;
 	background-color: rgb(0, 107, 183);
@@ -181,7 +97,21 @@ img {
 
 //.arrow(10px, #08C, bottom, 50%, 1px, darken(#08C, 10%))
 
+/*test floating menu*/
+.show {
+	position: fixed;
+	z-index: 1292;
+	/*top: -10px;*/
+	left: 10%;
+	/*margin-top: -100px;*/
+	/*margin-left: -250px;*/
+	width: 100%;
+	background-color: #fff;
+}
 
+.no-show {
+	position: relative;
+}
 
 /* dom */
 #top {
@@ -191,7 +121,7 @@ img {
 		position: relative;
 		nav#mainNav {
 			position: absolute;
-			z-index: 99;
+			z-index: 998;
 			left: 0px; 
 			top: -10px; 
 			right: 0px; 
@@ -296,7 +226,7 @@ img {
 						padding: 7px 12px;
 						font-size: .9em;
 					}
-					a.selected {
+					a:hover,a.selected {
 						background-color: #e2e3e4;
 					}
 				}
@@ -312,7 +242,7 @@ img {
 	.menu {
 		float: left;
 		margin-left: 10px;
-		z-index: 100;
+		z-index: 999;
 		position: relative;
 		.menuButton {
 			cursor: pointer;
@@ -419,39 +349,43 @@ img {
 			background-color: rgb(70,157,201); /* IE8 */
 			background-color: rgba(70,157,201,0.9);
 			color: #fff;
-			margin-top: 30px;
+			margin: 30px auto;
 			.center-block();
 			width: 320px;
 			text-align: left;
+			position: relative;
 			h1 {
 				margin-top: 30px;
 				padding: 50px 40px;
 				font-size: 48px;
 				margin: 0;
+				line-height: 110%;
 			}
 		}
 
 	}
 	
 	.subMenu {
-		position: absolute;
-		width: inherit;
-		bottom: 0;
-		border-bottom: 1px solid white;
-		background: @darkGrey;
-		color: #fff;
-		/*padding: 20px 0 30px 20px;*/
+		-bottom: 1px solid rgb(255, 255, 255);
+		background: none repeat scroll 0% 0% rgb(52, 52, 53);
+		color: rgb(255, 255, 255);
+		height: 80px;
+		padding: 20px 30px 20px 30px;
 		ul.subLevel1 {
-			.outline();
-			padding: 30px;
+			list-style-type: none;
+			margin: 0px;
+			/*padding: 20px;*/
+			
 			a:hover {
 				text-decoration: underline;
 			}
 			li {
-				width: 30%;
+				
+				width: 33%;
 				display: block;
 				float: left;
 				
+
 				h3 {
 					font-size: 1.5em;
 					line-height: 110%;
@@ -474,7 +408,10 @@ img {
 							margin-right: 6px;
 							color: rgb(83, 183, 232);
 							border-right: 1px solid rgba(255, 255, 255, 0.2);
-						} 
+						}
+						a:hover, a:focus {
+							text-decoration: underline;
+						}
 
 					}
 					/*li:after {
@@ -540,8 +477,12 @@ img {
 .imageBlock .byline h2,
 .imageBlock .byline h3,
 .imageBlock .byline h4,
-.imageBlock .byline p { color:#fff; }
-.imageBlock blockquote { background-image:url(../img/gfx/quoteSign_bright.png) }
+.imageBlock .byline p { 
+	color:#fff; 
+}
+.imageBlock blockquote { 
+	background-image:url(../img/gfx/quoteSign_bright.png);
+}
 .imageBlock .byline {
 	position:absolute;
 	top:0;
@@ -560,6 +501,8 @@ img {
 .textBlock {
 	padding: 30px;
 	position: relative;
+	/*width: 100%;*/
+
 }
 .textBlock.centered {
     padding: 30px 240px 30px 80px;
@@ -567,8 +510,8 @@ img {
 .push-left,
 .push-right { 
 	display: block; 
-	margin:40px; 
-	max-width:340px;
+	margin: 40px; 
+	max-width: 340px;
 }
 .push-left { 
 	float: left; 
@@ -592,6 +535,9 @@ img {
 				padding: 7px 12px;
 				
 			}
+			a.selected {
+				color: rgb(170, 170, 170);
+			}
 		}
 		li:after { 
 			content:"|"; color: #ddd; 
@@ -602,7 +548,177 @@ img {
 	}
 }
 
+/* recruit */
+.jobs {
+	.lang {
+		float: left;
+		padding: 0 8px 0 8px;
+		font-size: .9em;
+		a {
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+	table {
+		width: 100%;
+		border: 0;
+		font-size: .9em;
+		tr {
+			background-color: #fff;
+		}
+		thead tr td {
+			border: 0;
+			font-weight: bold;
+		}
+		tbody tr:hover {
+			background: #f7f8f9;
+		}
+		td {
+			border-top: 1px solid rgb(204, 205, 206);
+			line-height: 1.5em;
+			padding: 8px;
+			vertical-align: top;
+			text-align: left;
+			a {
+				text-decoration: underline;
+			}
+			a:hover {
+				color: rgb(0, 0, 0);
+			}
+		}
+		td:last-child {
+			/*text-align: right;*/
+		}
+	}
+}
 
+/* products */
+.products {
+	min-height: 600px;
+	background-color: rgb(240, 241, 242);
+}
+
+.renders {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	div {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+	}
+	.imgLayer1 {
+		background-image: url("../img/truck-bg.png");
+	}
+	.imgLayer2 {
+		background-image: url("../img/truck-cabinzone.png");
+	}
+	.imgLayer3 {
+		background-image: url("../img/truck-chassiszone.png");
+	}
+	.imgLayer4 {
+		background-image: url("../img/truck-fullcolor.png");
+	}
+}	 
+
+.menuProductContainer {
+	ul {
+		position: absolute;
+		z-index: 3;
+		top: 10px;
+		left: 10px;
+		li {
+			float: left;
+			display: inline;
+			margin-right: 3px;
+			a {
+				display: inline-block;
+				padding: 10px 10px 2px;
+				background-color: rgb(230, 231, 232);
+				color: rgb(17, 17, 17);
+				text-decoration: none;
+				text-transform: uppercase;
+				font-size: .9em;
+			}
+			a.selected {
+				background-color: rgb(70, 157, 201);
+				color: rgb(255, 255, 255);
+			}
+			a:hover {	
+				background-color: rgb(130, 138, 132);
+				color: rgb(255, 255, 255);
+			}
+		}
+	}
+}
+.subCategories {
+	clear: both;
+	ul {
+		width: 100%;
+		position: absolute;
+		z-index: 4;
+		bottom: 10px;
+		left: 10px;
+		li {
+			float: left;
+			/*margin-right: 1px;*/
+			padding-bottom: 50px;
+			text-align: center;
+			font-size: 1.8em;
+
+			a {
+				background-color: rgb(230, 231, 232);
+				color: rgb(17, 17, 17);
+				padding: 20px;
+				text-decoration: none;
+				border: 1px solid #fff;
+			}
+			a.selected {
+				background-color: rgb(70, 157, 201);
+				color: rgb(255, 255, 255);
+			}
+			a:hover {
+				background-color: rgb(255, 255, 255);
+				color: rgb(17, 17, 17);
+			}
+		}
+	}
+}
+
+ul.productFilter {
+	width: 100%;
+	padding-top: 10px;
+	li {
+		float: left;
+		margin-left: 1px;
+		a {
+			padding: 5px;
+			background: #eee;
+			color: #000;
+			font-size: .8em;
+		}
+	}
+}
+
+.productGridContainer {
+	padding-top: 10px;
+	.cabin {
+		background-color: #ff00dd;
+	}
+	.driveline {
+		background-color: #aabbcc;
+	}
+	.chassis {
+		background-color: #ff3322;
+	}
+}
 
 #footer {
 	clear: both;
@@ -634,7 +750,6 @@ img {
 		background: #aaa;
 		padding: 20px;
 		.wrapper {
-			
 			padding-right: 20px;
 			ul {
 				list-style-type: none;
@@ -651,7 +766,7 @@ img {
 					color: rgb(34, 34, 34);
 					font-size: 0.9em;
 				}
-				a.selected {
+				a:hover,a.selected {
 					background: rgb(226, 227, 228);
 				}
 			}
@@ -660,7 +775,7 @@ img {
 }
 
 /* pressrelease */
-.bright .button.primary {
+.button.primary {
     background-color: rgb(0, 107, 183);
     color: rgb(255, 255, 255) !important;
 }
@@ -676,6 +791,15 @@ img {
 		}
 	}
 }
+
+.pageLead {
+	padding: 20px 100px 20px 80px;
+	background-color: rgb(242, 242, 242);
+	h2 {
+		color: rgb(65, 64, 66);
+		font-size: 2em;
+	}
+}
 .filters {
 	padding: 15px;
 
@@ -684,6 +808,9 @@ img {
 		font-weight: normal;
 		letter-spacing: 1px;
 		margin: 0.4em 0px;
+	}
+	small {
+		font-size: .8em;
 	}
 	ul {
 		margin: 0px;
@@ -706,11 +833,46 @@ img {
 }
 
 
+.contentBox {
+	background-color: rgb(238, 245, 249);
+	padding: 10px 29px;
+	margin: 0;
+	.downloadBox {
+		h4 {
+			border-bottom: 1px solid rgba(65, 156, 203, 0.5);
+			margin: 30px 0px 15px;
+			padding-bottom: 15px;
+			font-size: 1.5em;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			li {
+				float: left;
+				width: 33%;
+				
+				a {
+					padding: 5px 5px 5px 44px;
+					line-height: 110%;
+					text-decoration: none;
+					background-image: url(../gfx/icon_download.png);
+					background-position: 4px 4px;
+					background-repeat: no-repeat;
+					background-size: 32px auto;
+					span {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+
+
 .pressReleaseContainer {
-	
+	padding: 30px 0 30px 30px;
 	clear: both;
-	width: 75%;
-	/*p*/
+	width: 70%;
 	float: left;
 	.newsListBox {
 		adding-right: 80px;
@@ -722,7 +884,7 @@ img {
 				color: rgb(153, 153, 153);
 			}
 			.pressReleaseTitle {
-				font-size: 1.5em;
+				font-size: 1.6em;
 			}
 			.pressReleaseDescription {
 				color: rgb(102, 102, 102);
@@ -732,12 +894,71 @@ img {
 }
 
 aside {
-	
 	float: left;
-	width: 25%;
+	width: 20%;
+	margin-top: 50px;
 	border-left: 1px solid rgb(238, 238, 238);
 	padding-left: 20px;
+	h3 {
+		font-size: 1.5em;
+	    line-height: 110%;
+	}
+	input {
+		display: inline-block;
+		width: 100%;
+		padding: 4px;
+		margin-bottom: 0.375em;
+		background-color: rgb(255, 255, 255);
+		border: 1px solid rgb(140, 155, 171);
+		color: rgb(0, 0, 0);
+	}
 }
+
+/* panels */
+ul.tabs {
+	display: block;
+	margin: 0px 0px 4px 20px;
+	padding: 0;
+	li {
+		margin: 0;
+		padding: 0;
+		display: inline;
+		a {
+			display: inline-block;
+			text-decoration: none;
+			padding: 10px 10px 2px;
+			font-size: .9em;
+			background-color: rgba(230,231,232,1.00); 
+			color:#111;
+			text-transform: uppercase;
+		}
+		a:hover {
+			background-color: rgba(128,139,133,1);
+			color: #fff;
+		}
+	}
+	li.selected {
+		a {
+			background-color: rgba(70,157,201,1);
+			color: #fff;
+		}
+	}
+}
+
+.contactBox {
+	.contact {
+		float: left;
+		padding: 10px;
+	}
+}
+
+
+.button.primary {
+	background-color: rgb(0, 107, 183);
+	color: rgb(255, 255, 255) !important;
+}
+
+/* recruit */
 
 
 /* end pressrelease */

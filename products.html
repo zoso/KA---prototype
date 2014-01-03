@@ -12,7 +12,7 @@
 	<![endif]-->
 	<!-- <script type="text/javascript" src="//use.typekit.net/uwh6flp.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
-	<title>KA - prototype</title>
+	<title>KA - products</title>
 </head>
 <body>
 	<div id="top" class="wrapper">
@@ -95,99 +95,47 @@
 		</div>
 	</div>
 	<!-- main focus -->
-	<div id="focusArea">
-		<div class="mastHead">
-			<!-- <span class="editDiv"></span> -->
-			<div class="wrapper">
-				<div class="vision clearfix">
-					<!-- <span class="editDiv"></span> -->
-					<h1>Enhancing the Driving Experience</h1>
-				</div>
-				<div class="subMenu clearfix">
-				<ul class="subLevel1">
-					<li>
-						<h3>
-							<a href="#">Commercial Vehicles</a>
-						</h3>
-						<ul class="subLevel2">
-							<li><a href="">Cabin</a></li>
-							<li><a href="">Driveline</a></li>
-							<li><a href="">Chassis</a></li>
-						</ul>
-					</li>
-					<li>
-						<h3>
-							<a href="#">Passenger Cars</a>
-						</h3>
-						<ul class="subLevel2">
-							<li><a href="">Cabin</a></li>
-							<li><a href="">Driveline</a></li>
-							<li><a href="">Chassis</a></li>
-						</ul>
-					</li>
-					<li>
-						<h3>
-							<a href="#">Off-Road Vehicles</a>
-						</h3>
-						<ul class="subLevel2">
-							<li><a href="">Cabin</a></li>
-							<li><a href="">Driveline</a></li>
-							<li><a href="">Chassis</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			</div>
+	<div id="focusArea" class="products">
+
+		<div class="menuProductContainer wrapper">
+			<ul>
+				<li><a class="selected" href="#">ON-ROAD VEHICLES</a></li>
+				<li><a href="#">COMMERCIAL VEHICLES</a></li>
+				<li><a href="#">OFF-ROAD VEHICLES</a></li>
+			</ul>
 		</div>
-
 		
+		<div class="renders">
+			<div class="imgLayer1"></div>
+			<div class="imgLayer2"></div>
+			<div class="imgLayer3"></div>
+			<div class="imgLayer4"></div>
+		</div>
 	</div>
-	<!-- main content -->
-	
-
 	
 	<!-- content -->
 	<div class="content wrapper clearfix">
-		<div class="tileRow clearfix">
-			<!-- <div class="tile tile2x2 black">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">Some inspiration here</div>
-			</div> -->
-			<div class="tile tile2x1 white">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">
-					<span>Some inspiration here</span>
-				</div>
-				<a class="tileLink" href="#">&nbsp;</a>
-			</div>
-
-			<div class="tile tile1x1 black">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">
-					<span>Something to be inspired by here</span>
-				</div>
-				<a class="tileLink" href="#">&nbsp;</a>
-			</div>
-			<div class="tile tile1x1 white">
-				<div class="tileName">Inspire</div>
-				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
-				</div>
-				<div class="tileContent">
-					<span>Some more inspiration here</span>
-				</div>
-				<a class="tileLink" href="#">&nbsp;</a>
-			</div>
+		<div class="subCategories wrapper">
+			<ul>
+				<li><a class="selected" href="#">Cabin</a></li>
+				<li><a href="#">Driveline</a></li>
+				<li><a href="#">Chassis</a></li>
+			</ul>
 		</div>
+		<div class="filters">
+			<h6>FILTER BY SUBCATEGORY: <small><a class="view_all" href="#">VIEW ALL</a></small></h6>
+			<ul class="productFilter">
+				<li><a href="#">Seat Climate System</a></li>
+				<li><a href="#">Seat Support System</a></li>
+				<li><a href="#">Head Restraints</a></li>
+				<li><a href="#">Arm Rests</a></li>
+				<li><a href="#">Cables and Actuators</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="productGridContainer wrapper clearfix">
+	
 	</div>
 	<!-- subnav -->
 	<div class="subNav clearfix">
@@ -243,4 +191,59 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="js/script.js"></script>
+<script src="js/ProductList_v0.1.js"></script>
+<script>
+	$(document).ready(function($) {
+		function log(m) {
+			window.console && console.log("log: " + m);// || alert("log: "+m); 
+		}
+		var ImgSlider = {
+			container: $('.renders'),
+			active: 0,
+			init: function() {
+				this.change(3);
+			},
+			change: function(id) {
+				this.container.children().each(function(i) {
+					if (i != id) {
+						if (this.active != 0) {
+							$(this).hide();
+						}
+					} else {
+						$(this).show();
+						this.active = i;
+					}
+				});
+			},
+			show: function(id) {
+				this.container.children().eq(id).show();
+			}
+		}
+		ImgSlider.init();
+
+		$('.subCategories ul li').click(function(e) {
+			e.preventDefault();
+			var index = $('.subCategories ul li').index(this);
+			log("clicked "+index);
+			ImgSlider.change(index);
+			ProductList.sort($(this).children('a').text().toLowerCase());
+		});
+
+		$('ul.productFilter li').click(function(e) {
+			e.preventDefault();
+			$('.productGridContainer').children().each(function(i) {
+				/*if ($(this).hasClass('white')) {
+					$(this).fadeOut().addClass("hidden");
+				}*/
+			});
+		});
+
+		$('a.view_all').click(function(e) {
+			e.preventDefault();
+			ProductList.reset();
+		});
+
+		ProductList.init();
+	});
+</script>
 </html>

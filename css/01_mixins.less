@@ -1,0 +1,71 @@
+.clearfix {
+// http://nicolasgallagher.com/micro-clearfix-hack/
+    *zoom: 1; // for oldIE
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after{
+        clear: both;
+    }
+}
+
+.center-block() {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.background-gradient(@start, @stop) {
+    background: mix(@start, @stop, 50%);
+    background: -webkit-gradient(linear, left top, left bottom, from(@start), to(@stop));
+    background: -webkit-linear-gradient(top, @start, @stop);
+    background: -moz-linear-gradient(top, @start, @stop);
+    background: -o-linear-gradient(top, @start, @stop);
+    background: linear-gradient(to bottom, @start, @stop);
+}
+
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
+}
+
+.box-sizing(@sizing) {
+    -moz-box-sizing: @sizing;
+    -webkit-box-sizing: @sizing;
+    box-sizing: @sizing;
+}
+
+.size(@width, @height) {
+    width: @width;
+    height: @height;
+}
+
+.square(@size) {
+    .size(@size, @size);
+}
+
+.outline(@col: #000) {
+    outline: 1px solid @col;
+}
+
+/* test - switch */
+.myFunc(@dir) when (@dir = bottom) {
+    background: #330011;
+}
+
+.myFunc(@dir) when (@dir = left) {
+    background: #1e0011;
+}
+
+.myFunc(@dir) when (@dir = right) {
+    background: #aa0011;
+}
+
+.myFunc(@dir) when (@dir = top) {
+    background: #bb0011;
+}

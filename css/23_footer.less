@@ -1,0 +1,56 @@
+@import '0_vars.less';
+@import '01_mixins.less';
+
+#footer {
+	clear: both;
+	.topFooter {
+		background: #ccc;
+		padding: 20px;
+		height: 100px;
+		.contact {
+			width: @wrapperWidth/4;
+			float: left;
+			margin: 20px;
+			border-right: 1px solid rgb(221, 221, 221);
+		}
+		.about {
+			float: left;
+			width: @wrapperWidth/2;
+			margin: 20px;
+			border-right: 1px solid rgb(221, 221, 221);
+		}
+		.social {
+			float: left;
+			width: @wrapperWidth/8;
+			margin: 20px;
+			
+		}
+	}
+	.langFooter {
+		.clearfix;
+		background: #aaa;
+		padding: 20px;
+		.wrapper {
+			padding-right: 20px;
+			ul {
+				list-style-type: none;
+				float: right;
+				width: 220px;
+				padding-left: 20px;
+				
+				li {
+					float: left;
+				}
+				a {
+					display: block;
+					padding: 7px 12px;
+					color: rgb(34, 34, 34);
+					font-size: 0.9em;
+				}
+				a.selected {
+					background: rgb(226, 227, 228);
+				}
+			}
+		}
+	}
+}

@@ -19,186 +19,38 @@
 .arrow_box:after { 
     border-color: none;
     border-right-color: #efefef; 
-    border-width: 15px; 
-    margin-top: -15px; 
+    border-width: 18px; 
+    margin-top: -18px; 
 } 
 .arrow_box:before { 
     border-color: none;
-    border-right-color: #efefef; 
+    border-right-color: #fff; 
     border-width: 21px; 
     margin-top: -21px; 
 }
 
 /* mixins */
-.center-block() {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
 
-.box-sizing(@sizing) {
-    -moz-box-sizing: @sizing;
-    -webkit-box-sizing: @sizing;
-    box-sizing: @sizing;
-}
-
-.size(@width, @height) {
-	width: @width;
-	height: @height;
-}
-
-.square(@size) {
-  	.size(@size, @size);
-}
 
 /* variables - use % */
 
-@maxWidth: 100%; /* 1024px */
 
-@smallTile: @maxWidth/4;
-@mediumTile: @maxWidth/2;
-@mediumTile2: @maxWidth - @smallTile;
-@bigTile: @maxWidth; 
-@height: 25%;//256px;
-@height2x: 512px;
 /* css */
 
-/* Focus areas - in percent */
-.focus {
-    position: relative;
-    overflow: hidden;
-    float: left;
-    background: #ededed;
-    outline: 2px solid #fff;
-    /*outline: 1px solid #333;*/
+
+blockquote { 
+    font-family:inherit;
+    background-image:url(../img/quoteSign.png);
+    background-position: 45px left;
+    background-repeat:no-repeat;
+    background-size: 24px;
+    margin: 0;
+    padding-left: 30px;
+    border-left: none;
+    font-style: normal;
 }
-
-.small1x { /* 1 small box - 2 small boxes  */
-    width: @mediumTile;
-    height: @height;
-    .tile {
-        width: @bigTile;
-        height: @bigTile;
-        background: #d2d2d2;
-    }
-}
-
-.small2x {
-    width: @mediumTile;
-    height: @height;
-    .tile {
-        width: @mediumTile;
-        height: @bigTile;
-    }
-}
-
-.small2xV { /* 2 small boxes vertically */
-    width: @smallTile;
-    height: @height*2;
-    .tile {
-        width: @bigTile;
-        height: @mediumTile;
-    }
-}
-
-.big2x { /* 2 boxes horizontal */
-    width: @mediumTile;
-    height: @height*2;
-    .tile {
-        width: @bigTile;
-        height: @bigTile;
-    }
-}
-
-.big2x1 { /* 1 big box above/under 2 boxes */
-    width: @mediumTile;
-    height: @height*2;
-    .tile {
-        width: @bigTile;
-        height: @mediumTile;
-    }
-}
-
-.big3x {
-    width: @mediumTile2;
-    height: @height*2;
-    .tile {
-        width: @bigTile;
-        height: @bigTile;
-    }
-}
-
-
-
-.focus-big1x { /* 1 big boxes */
-
-}
-
-
-
-
-
-
-
-.focus-big4x { /* 4 boxes */
-
-}
-
-/* themes */
-
-
-.focus-small { 
-    position: relative;
-    width: @mediumTile;
-    height: @smallTile;
-    background: #ff3344;
-    float: left;
-    outline: 1px solid #222;
-    overflow: hidden;
-}
-
-.focus-medium {
-    position: relative;
-    width: @mediumTile;
-    height: @mediumTile;
-    background: #ee34c3;
-    float: left;
-    outline: 1px solid #333;
-    overflow: hidden;
-}
-
-.focus-medium3x {
-    position: relative;
-    width: @mediumTile2;
-    height: @mediumTile;
-    background: lighten(#ff3344, 30%);
-    float: left;
-    /*outline: 1px solid #ffeeff;*/
-    overflow: hidden;
-}
-
-.focus-small-v {
-    position: relative;
-    width: @smallTile;
-    height: @mediumTile;
-    background: lighten(#555, 20%);
-    float: left;
-    /*outline: 1px solid darken(#555, 10%);*/
-    overflow: hidden;
-}
-
-.focus-big {
-    position: relative;
-    width: @bigTile;
-    height: @mediumTile;
-    background: #99ee33;
-    float: left;
-    /*outline: 1px solid #333;*/
-    overflow: hidden;
-}
-
 /* knekken */
-.focus .tile:last-child:after {
+.tileRow .tile:last-child:after {
     display:block;
     content:" ";
     width:30px;
@@ -210,7 +62,7 @@
     background-size:100%;
     z-index: 50;
 }
-
+        
 /* tiles */
 .tileRow {
     /*.outline(#ff3300);*/
@@ -245,45 +97,122 @@
         left: 0px;
         /*width: 90%;*/
         /*min-height: 80px;*/
-        padding: 10px;
-        font-size: 2em;
+        padding: 10px 0 10px 0;
+        font-size: 1.8em;
+        line-height: 100%;
         width: 100%;    
+        span {
+            display: inline-block;
+            padding: 0 10px 0 10px;
+        }
         /*z-index: 2;*/
         /*min-width: 100%;*/
     }
+    a {
+        text-decoration: none;
+    }
 }
+.tileLink { 
+    display:block; 
+    position:absolute; 
+    top:0; 
+    right:0; 
+    bottom:0; 
+    left:0; 
+}
+.tile:hover .tileLink { 
+    background-color: rgba(0,0,0,0.2); 
+    box-shadow: 0 0 60px 2px rgba(0,01,0,0.10) inset;
+}
+
+
 
 .tile1x1 {
     width: @height;
     height: @height;
+    min-height: 256px;
     max-height: 256px;
 }
 
 .tile2x1 {
     width: @height*2;
     height: @height;
+    min-height: 256px;
     max-height: 256px;
 }
 
 .tile2x2 {
     width: @height*2;
     height: @height*2;
+    min-height: 512px;
     max-height: 512px;
 }
 
 .tile3x2 {
     width: @height*3;
     height: @height*2;
+    min-height: 512px;
     max-height: 512px;
 }
 
 .tile4x2 {
     width: @height*4;
     height: @height;
+    min-height: 512px;
     max-height: 512px;
 }
 
+.tileProduct {
+    width: 20%;
+    height: 210px;
+    .tileContent {
+        font-size: .9em;
+    }
+}
 
+.pageHeadImage {
+    .tileImg {          
+        
+    }
+    .tileContent {
+        position: absolute;
+        bottom: 30px;
+        color: #fff;
+
+    }
+}
+
+.pageHead2x2 {
+    color: #fff;
+    background: @lightBlue;
+    .tileImg {
+        float: right;
+        width: @height*2;
+    }
+    .tileContent {
+        position: absolute;
+        bottom: 30px;
+        left: 0px;
+        color: #fff;
+        width: @height*2;
+        max-width: 512px;
+        span {
+            padding: 30px;  
+        }
+        h1 {
+            /*padding: 0 40px 0 40px;*/
+            font-size: 1.4em;
+            line-height: 110%;
+            margin: 0;
+        }
+        h3 {
+            /*padding: 0 40px 0 40px;*/
+            font-size: .85em;
+            line-height: 110%;
+            margin: 0.7em 0px 0px;
+        }
+    }
+}
 
 /* themes */
 .black {
@@ -299,6 +228,10 @@
     .tileContent {
         background: #fff;
         .background-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.8));
+    }
+    a.tileLink:hover {
+        background-color: rgba(255,255,255,0.2); 
+        box-shadow: 0 0 60px 2px rgba(255,255,255,0.10) inset;
     }
 }
 
@@ -381,6 +314,49 @@
     }
 }
 
+.download {
+    .tileName {
+        display: none;
+    }
+    .tileContent {
+        text-align: center;
+    }
+}
+
+.subscribe {
+
+    .tileName {
+        display: none;
+    }
+    .tileContent {
+        top: 0;
+        left: 0;
+        
+        font-size: 1em;
+        span {
+            margin: 10px 20px 10px 10px;
+            padding: 0;
+            h3 {
+                font-size: 2em;
+                padding: 10px 0 10px 0;
+            }
+            form input {
+                width: 100%;
+                display: inline-block;
+                padding: 4px;
+                margin-bottom: 0.375em;
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(140, 155, 171);
+                color: rgb(0, 0, 0);
+            }
+            input:focus, textarea:focus {
+                outline: 0px none;
+            } 
+        }
+        
+    }
+}
+
 .image {
     .tileContent,
     .tileName {
@@ -395,15 +371,32 @@
     background: #efefef;
 }
 
-.arrow {
-    overflow: visible;
-    /*position: absolute;
-    width: 0; 
-    height: 0; 
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent; 
-    
-    border-right:10px solid blue; */
+.quote {
+    .tileImg {
+        position: relative;
+        float: left;
+        width: @height*2;
+        height: @height*2;
+        border-right: 1px solid #fff;
+    }
+    .tileContent {
+        position: relative;
+        float: left;
+        width: @height*2 - 1px;
+        height: @height*2 - 20px;
+        margin-top: 20px;
+        font-size: 1em;
+        blockquote {
+            padding: 5px 20px 20px 40px;
+            margin-left: 5px;
+            margin-left: 24px;
+        }
+    }
+    .tileName {
+        position: absolute;
+        left: (@height*2) + 5px; 
+    }
+
 }
 
 @media only screen and (max-width: 767px) {

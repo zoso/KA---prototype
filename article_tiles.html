@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/tiles.css">
 	<title>Article</title>
 </head>
 <body>
@@ -94,28 +95,82 @@
 				<div class="tileImg">
 					<img src="img/volvo03.jpg" alt="">
 				</div>
-				<div class="tileContent">Some inspiration here</div>
+				<div class="tileContent">
+					<span>
+						Some inspiration here
+					</span>
+				</div>
+				<a class="tileLink" href="#">&nbsp;</a>
 			</div>
 			<div class="tile tile1x1 black">
 				<div class="tileName">Inspire</div>
 				<div class="tileImg">
 					<img src="img/volvo03.jpg" alt="">
 				</div>
-				<div class="tileContent">Some inspiration here</div>
+				<div class="tileContent">
+						<span>
+							Some inspiration here
+						</span>
+					</div>
+				<a class="tileLink" href="#">&nbsp;</a>
 			</div>
-			<div class="tile tile1x1">
+			<!-- <div class="tile tile1x1">
 				<div class="tileName">Inspire</div>
 				<div class="tileImg">
 					<img src="img/volvo03.jpg" alt="">
 				</div>
 				<div class="tileContent">Some inspiration here</div>
+			</div> -->
+			<div class="tile tile2x1 quote ">
+				<div class="tileName">Inspire</div>
+				<div class="tileImg ">
+					<img src="img/volvo03.jpg" alt="">
+				</div>
+				<div class="tileContent arrow_box">
+					<span><blockquote>Some inspiration here</blockquote></span>
+				</div>
+				<a class="tileLink" href="#">&nbsp;</a>
+			</div>
+			<div class="tile tile1x1 download white">
+				<div class="tileName">Inspire</div>
+				<div class="tileImg">
+					<img src="img/downloadpage.png" alt="">
+				</div>
+				<div class="tileContent"><span>Images & Logos</span></div>
+				<a class="tileLink" href="#">&nbsp;</a>
+			</div>
+			<div class="tile tile1x1 subscribe">
+				<div class="tileName">Inspire</div>
+				<div class="tileImg">
+					<!-- <img src="img/volvo03.jpg" alt=""> -->
+				</div>
+				<div class="tileContent">
+					<span>	
+						<h3>Stay updated</h3>
+						<form>
+						<!--
+						<label for="email">E-mail address</label>
+						-->
+						<input placeholder="E-mail address" type="email">
+						<a class="button primary" href="#">Subscribe</a><a class="button secondary" href="#">Unsubscribe</a>
+						</form>
+			
+					</span>
+				</div>
 			</div>
 			<div class="tile tile1x1">
 				<div class="tileName">Inspire</div>
 				<div class="tileImg">
-					<img src="img/volvo03.jpg" alt="">
+					<!-- <img src="img/volvo03.jpg" alt=""> -->
 				</div>
-				<div class="tileContent">Some inspiration here</div>
+				<div class="tileContent"><span>Some inspiration here</span></div>
+			</div>
+			<div class="tile tile1x1">
+				<div class="tileName">Inspire</div>
+				<div class="tileImg">
+					<!-- <img src="img/volvo03.jpg" alt=""> -->
+				</div>
+				<div class="tileContent"><span>Some inspiration here</span></div>
 			</div>
 		</div>
 		<p>Row</p>
@@ -125,7 +180,11 @@
 				<div class="tileImg">
 					<img src="img/volvo03.jpg" alt="">
 				</div>
-				<div class="tileContent">Some inspiration here</div>
+				<div class="tileContent">
+					<span>
+						Some inspiration here
+					</span>
+				</div>
 			</div>
 		</div>
 		<p>row</p>
@@ -135,28 +194,44 @@
 				<div class="tileImg">
 					<img src="img/volvo03.jpg" alt="">
 				</div>
-				<div class="tileContent">Some inspiration here</div>
+				<div class="tileContent">
+					<span>
+						Some inspiration here
+					</span>
+				</div>
 			</div>
 			<div class="tile tile2x1 white">
 				<div class="tileName">Inspire</div>
 				<div class="tileImg">
 					<img src="img/volvo03.jpg" alt="">
 				</div>
-				<div class="tileContent">Some inspiration here</div>
+				<div class="tileContent">
+					<span>
+						Some inspiration here
+					</span>
+				</div>
 			</div>
 			<div class="tile tile1x1 white">
 				<div class="tileName">Inspire</div>
 				<div class="tileImg">
 					<img src="img/volvo03.jpg" alt="">
 				</div>
-				<div class="tileContent">Some inspiration here</div>
+				<div class="tileContent">
+					<span>
+						Some inspiration here
+					</span>
+				</div>
 			</div>
 			<div class="tile tile1x1 white">
 				<div class="tileName">Inspire</div>
 				<div class="tileImg">
 					<img src="img/volvo03.jpg" alt="">
 				</div>
-				<div class="tileContent">Some inspiration here</div>
+				<div class="tileContent">
+					<span>
+						Some inspiration here
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -212,26 +287,5 @@
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script>
-	$(document).ready(function($) {
-		function menuControl(el) {
-			el.hasClass('active') ? el.removeClass('active') : el.addClass('active');
-			$('nav#mainNav').is(':visible') ? $("nav#mainNav").fadeOut() : $("nav#mainNav").fadeIn();
-		}
-		$('#top .menuButton').click(function(e) {
-			e.preventDefault();
-			e.stopPropagation();	
-			menuControl($(this));
-		});	
-	});
-	$(document).click(function(e) {
-		if ($("nav#mainNav").is(':visible')) {
-			var isNav = $(e.target).parents().index($('.menuContainer'));
-		    if (isNav == -1) {
-		    	$('nav#mainNav').fadeOut();
-		    }
-		}
-	});
-	
-</script>
+<script src="js/script.js"></script>
 </html>

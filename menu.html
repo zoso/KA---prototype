@@ -143,55 +143,5 @@
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script>
-	$(document).ready(function($) {
-		function menuControl() {
-			if ($("nav#mainNav").is(':visible')) {
-				$("nav#mainNav").fadeOut();
-			} else {
-				$("nav#mainNav").fadeIn();
-			}
-		}
-		$('#top .menuButton').click(function(e) {
-			e.preventDefault();
-			e.stopPropagation();
-			if ($(this).hasClass('active')) {
-				$(this).removeClass('active');
-			} else {
-				$(this).addClass('active');
-			}
-			menuControl();
-		});	
-		
-	});
-
-	$(document).click(function(e) { 
-/*	    
-		var u = $(event.target).parentsUntil('nav');
-		console.log(u);*/
-
-	    /*var pEl = $(e.target).parents().map(function() {
-	    	console.log("---> "+this.className+" > "+this.id);
-	    	return this.tagName;
-	    }).get().join( ", " );
-	    console.log(">>> "+pEl+ " > ");*/
-
-	    
-	    var isNav = $(e.target).parents().index($('.menuContainer'));
-
-	    console.log("isNav: "+isNav);
-
-	    if (isNav == -1) {
-	    	if ($('nav#mainNav').is(":visible")) {
-	    		$('nav#mainNav').fadeOut();
-	    	}
-	    }
-
-	    /*if(ev.parents().index($('nav')) == -1) {
-	        if($('nav#mainNav').is(":visible")) {
-	            $('nav#mainNav').fadeOut()
-	        }
-	    }*/        
-	});
-</script>
+<script src="js/script.js"></script>
 </html>

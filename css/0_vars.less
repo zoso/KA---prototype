@@ -12,7 +12,7 @@
 @wrapperWidth: 1024px;
 @bgBodyCol: #fff; //lighten(@bgBodyCol, 10%) fadein(@bgBodyCol, 10%), fadeout , fade
 @bodyFontCol: #555;
-@lightBlue: rgb(102,155,200);	
+@lightBlue: rgb(70, 157, 201);//rgb(102,155,200);	
 @darkGrey: rgb(52,52,53);
 @mediumGrey: rgb(240,241,242);
 @mapGrey: rgb(211,212,212);
@@ -20,3 +20,29 @@
 /* animation */
 @transTime: .5s;
 
+@maxWidth: 100%; /* 1024px */
+
+@smallTile: @maxWidth/4;
+@mediumTile: @maxWidth/2;
+@mediumTile2: @maxWidth - @smallTile;
+@bigTile: @maxWidth; 
+@height: 25%;//256px;
+@height2x: 512px;
+
+/*	Resets	*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}

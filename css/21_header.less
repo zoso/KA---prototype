@@ -1,0 +1,253 @@
+/* header */
+@import '0_vars.less';
+@import '01_mixins.less';
+@import '1_fonts.less';
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	color: @bodyFontCol;
+	font-family: 'Klavika-web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	line-height: 1.5em;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a, a:visited { color:#469CC9; text-decoration: underline; }
+
+img {
+    max-width: 100%;
+    border-width: 0px;
+    vertical-align: middle;
+}
+
+/* edit */
+.editDiv {
+	position: absolute;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+}
+
+.wrapper {
+	/*width: @wrapperWidth;*/
+	position: relative;
+	max-width: @wrapperWidth;
+	margin: 0 auto;
+}
+
+#top {
+	height: 60px;
+	margin-top: 10px;
+	.menuContainer {
+		position: relative;
+		nav#mainNav {
+			position: absolute;
+			z-index: 99;
+			left: 0px; 
+			top: -10px; 
+			right: 0px; 
+			padding: 10px 20px;
+			background-color: rgba(235,236,237,1.00);
+			.box-shadow(0px 3px 9px 0px rgba(65,64,66,0.50));
+			ul {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+			}
+			li {
+				/*float: left;
+				display: block;*/
+				/*padding: 5px;*/
+			}
+			a {
+				display: block;
+				color: #222;
+				text-decoration: none;
+				padding: 8px 0 10px 10px;
+				margin-bottom: 10px;
+			}
+			ul.level1 {
+				/*outline: 1px solid #434;*/
+				border-top: 1px solid rgb(221, 221, 221);
+				padding-top: 10px;
+				margin-top: 60px;
+				li {
+					width: 20%;
+					float: left;
+					margin-bottom: 10px;
+					a {
+						/**/
+						color: #222;
+						font-size: 1em;
+						transition: background @transTime ease-in;  
+						font-weight: bold;
+					}
+					a.selected {
+						background-color: rgba(70, 157, 201, 0.9);
+						color: rgb(255, 255, 255);
+					}
+					a:hover, a:focus {
+						color: #000;
+						background: #bbb;
+					}
+					ul.level2 {
+						/*background: #eee211;*/
+						li {
+							width: 100%;
+							display: block;
+							margin-bottom: 0;
+							/*background: #aaaddd;*/
+							a {
+								color: #222;
+								/*width: 100%;*/
+								margin: 0;
+								transition: background @transTime ease-in;
+								font-weight: normal;
+								font-size: .9em;
+							}
+							a.selected {
+								/*width: 100%;*/
+								color: #fff;
+								background: #bbb;
+							}
+							a:hover, a:focus {
+								background: #bbb;
+							}
+						}
+					}
+					ul.serviceMenu {
+						/*background: #aa9922;*/
+						li {
+							/*outline: 1px solid #aa4400;*/
+							width: 100%;
+							a {
+
+							}
+						}
+					}
+				}
+				li.selected {
+					/*outline: 1px solid #ff2200;	*/
+					
+					background-color: rgba(130, 131, 132, 0.1);
+					ul {
+						background-color: rgba(130, 131, 132, 0.1);
+					}
+				}
+			}
+
+			ul.languageSelect {
+				position: absolute;
+				right: 20px;
+				top: 10px;
+				li {
+					float: left;
+					display: block;
+					a {
+						padding: 7px 12px;
+						font-size: .9em;
+					}
+					a.selected {
+						background-color: #e2e3e4;
+					}
+				}
+			}
+			ul.languageSelect:after {
+				clear: both;
+				content: " ";
+				display: block;
+			}
+		}
+	}
+	
+	.menu {
+		float: left;
+		margin-left: 10px;
+		z-index: 100;
+		position: relative;
+		.menuButton {
+			cursor: pointer;
+			/*display: inline-block;*/
+			text-align: center;
+			width: 36px;
+			height: 36px;
+			background-color: rgba(150,152,154,1.00);
+			background-image: url(../img/menuIcon.png);
+			background-repeat: no-repeat;
+			background-position: center 2px;
+			background-size: 100%;
+			
+			span {
+
+				display: block;
+			}
+		}
+		.menuButton:hover {
+			background-color: rgba(100,102,104,1.00);
+		}
+		.menuButton.active {
+			background-color: #aaa;
+		}
+		.menuButtonTxt {
+			font-size: 0.75em;
+			padding-top: 3px;
+			text-align: center;
+			margin-top: 1px;
+			line-height: 1em;
+		}
+	}
+	
+	.breadContainer {
+		margin-left: 10px;
+		padding-left: 10px;
+		padding-top: 3px;
+		border-left: 1px solid @darkGrey;
+		float: left;
+		.titleContainer {
+			font-size: 1.8em;
+		}
+		.breadCroumbs {
+			font-size: 0.8em;
+			ul {
+				list-style-type: none;
+				li {
+					float: left;
+					a {
+
+					}
+				}
+				li:after {
+					content:"/"; color: #ddd; 
+				}
+			}
+		}
+	}
+
+	.logoContainer {
+		/*display: inline-block;*/
+		float: right;
+		width: 200px;
+		position: relative;
+		#logo { 
+			width: 300px/1.7;
+			height: 84px/1.7;
+			background-image: url(../img/logo.png); 
+			background-size: contain; 
+			background-position: top right; 
+			background-repeat: no-repeat; 
+			/*position: absolute; 
+			top:10px; 
+			right:10px; 	*/
+		}
+
+	}
+}
