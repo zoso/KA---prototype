@@ -117,7 +117,7 @@
 	<div class="content wrapper clearfix">
 		<div class="subCategories wrapper">
 			<ul>
-				<li><a class="selected" href="#">Cabin</a></li>
+				<li><a href="#">Cabin</a></li>
 				<li><a href="#">Driveline</a></li>
 				<li><a href="#">Chassis</a></li>
 			</ul>
@@ -125,11 +125,11 @@
 		<div class="filters">
 			<h6>FILTER BY SUBCATEGORY: <small><a class="view_all" href="#">VIEW ALL</a></small></h6>
 			<ul class="productFilter">
-				<li><a href="#">Seat Climate System</a></li>
-				<li><a href="#">Seat Support System</a></li>
-				<li><a href="#">Head Restraints</a></li>
-				<li><a href="#">Arm Rests</a></li>
-				<li><a href="#">Cables and Actuators</a></li>
+				<li><a data-id="1" href="#">Seat Climate System</a></li>
+				<li><a data-id="2" href="#">Seat Support System</a></li>
+				<li><a data-id="3" href="#">Head Restraints</a></li>
+				<li><a data-id="4" href="#">Arm Rests</a></li>
+				<li><a data-id="5" href="#">Cables and Actuators</a></li>
 			</ul>
 		</div>
 	</div>
@@ -223,24 +223,29 @@
 
 		$('.subCategories ul li').click(function(e) {
 			e.preventDefault();
+			$(this).parent().children().find('a').each(function(i) {
+				log("...........");
+				$(this).removeClass('selected');
+			});
 			var index = $('.subCategories ul li').index(this);
 			log("clicked "+index);
 			ImgSlider.change(index);
 			ProductList.sort($(this).children('a').text().toLowerCase());
+			$(this).children('a').addClass('selected');
 		});
 
 		$('ul.productFilter li').click(function(e) {
 			e.preventDefault();
-			$('.productGridContainer').children().each(function(i) {
-				/*if ($(this).hasClass('white')) {
-					$(this).fadeOut().addClass("hidden");
-				}*/
-			});
+			ProductList.sortCat($(this).find('a').data("id"));
 		});
 
 		$('a.view_all').click(function(e) {
 			e.preventDefault();
 			ProductList.reset();
+			$('.subCategories ul').children().find('a').each(function(i) {
+				log("...........");
+				$(this).removeClass('selected');
+			});
 		});
 
 		ProductList.init();

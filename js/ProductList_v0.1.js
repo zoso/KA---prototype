@@ -28,7 +28,7 @@ var ProductList = {
 	,
 	createTile: function(data, group) {
 		for (var i = 0; i < data.length; i++) {
-			var str = '<div class="tile white tileProduct '+group+'">';
+			var str = '<div data-cid="'+data[i].prodid+'" class="tile white tileProduct '+group+'">';
 			str += '<div class="tileImg"><img src="'+data[i].img+'"></div>';
 			str += '<div class="tileContent"><span>'+data[i].name+'</span></div>';
 			str += '<a class="tileLink" href="#"></a></div>';
@@ -40,10 +40,22 @@ var ProductList = {
 		$(this.container).children().each(function(i) {
 			if ($(this).hasClass(val)) {
 				if ($(this).is(":visible")) {
-					$(this).fadeOut(100+(i*100));
+					//$(this).fadeOut(100+(i*10));
 				} else {
-					$(this).fadeIn(100+(i*100));
+					$(this).fadeIn(100+(i*10));
 				}
+			} else {
+				$(this).fadeOut(100+(i*10));
+			}
+		});
+	},
+	sortCat: function(id) {
+		console.log("sortCat "+id);
+		$(this.container).children().each(function(i) {
+			if ($(this).data("cid") == id) {
+				$(this).fadeIn(100+(i*10));
+			} else {
+				$(this).fadeOut(100+(i*10));
 			}
 		});
 	},

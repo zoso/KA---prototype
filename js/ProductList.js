@@ -3,56 +3,56 @@
 		{
 			"prodid": 1,
 			"img": "img/product01.jpg",
-			"name": "product",
+			"name": "product cabin",
 			"url": "",
 			"gid": 1
 		},
 		{
 			"prodid": 2,
 			"img": "img/product01.jpg",
-			"name": "product 2",
+			"name": "product 2 cabin",
 			"url": "",
 			"gid": 1
 		},
 		{
 			"prodid": 3,
 			"img": "img/product01.jpg",
-			"name": "product 3",
+			"name": "product 3 cabin",
 			"url": "",
 			"gid": 1
 		},
 		{
 			"prodid": 4,
 			"img": "img/product01.jpg",
-			"name": "product 4",
+			"name": "product 4 cabin",
 			"url": "",
 			"gid": 1
 		},
 		{
 			"prodid": 5,
 			"img": "img/product01.jpg",
-			"name": "product 5",
+			"name": "product 5 cabin",
 			"url": "",
 			"gid": 1
 		},
 		{
 			"prodid": 6,
 			"img": "img/product01.jpg",
-			"name": "product 6",
+			"name": "product 6 cabin",
 			"url": "",
 			"gid": 1
 		},
 		{
 			"prodid": 7,
 			"img": "img/product01.jpg",
-			"name": "product 7",
+			"name": "product 7 cabin",
 			"url": "",
 			"gid": 1
 		},
 		{
 			"prodid": 8,
 			"img": "img/product01.jpg",
-			"name": "product 8",
+			"name": "product 8 cabin",
 			"url": "",
 			"gid": 1
 		}
