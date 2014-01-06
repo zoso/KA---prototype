@@ -1,2 +1,5 @@
 .clearfix{*zoom:1}.clearfix:before,.clearfix:after{content:"";display:table}
 .clearfix:after{clear:both}
+.email:after{content:attr(data-domain)}
+.email:before{content:attr(data-user)}
+.domain:before{content:"\0040";}

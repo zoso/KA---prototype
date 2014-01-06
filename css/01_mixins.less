@@ -69,3 +69,17 @@
 .myFunc(@dir) when (@dir = top) {
     background: #bb0011;
 }
+
+/* hide email adresses */
+.email:after {
+    content: attr(data-domain);
+}
+.email:before {
+    content: attr(data-user);
+}
+/* or */
+.domain:before {
+    content: "\0040"; /*unicode @ sign */
+}
+/* name<span class="domain">abc.com</span> */
+

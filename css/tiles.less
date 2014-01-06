@@ -284,6 +284,46 @@ blockquote {
         }
     }
 }
+.hidden { display:none; }
+.video_tile {
+    position: relative;
+    .tileContent {
+        padding: 20px 40px 30px;
+        left: 30px;
+        bottom: 30px;
+        width: 40%;
+        /*height: 42.5%;*/
+        
+        background-color: rgba(70, 157, 201, 0.9);
+        span {
+            color: #fff;
+            padding: 20px;
+        }
+    }
+    a.playButton {
+        margin-top: 10px;
+        display: block;
+        padding: 10px 18px;
+        font-size: .9em;
+        background-color: rgb(0, 107, 183);
+        color: #fff;
+    }
+    a.playButton:hover {
+        text-decoration: underline;
+    }
+
+    a.playButton:before { 
+        content: ""; 
+        display: inline-block; 
+        border:0.35em solid transparent; 
+        border-left-color: #fff; 
+    }
+    a.playButton:before { 
+        border-left-color:#fff; 
+    }
+ /*   .tile.bright a.siteLink:before { border-left-color:#666; }*/
+
+}
 
 .download {
     .tileName {

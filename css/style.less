@@ -18,6 +18,21 @@
 	font-style: normal;
 }
 
+#toTop {
+	position: fixed;
+	z-index: 2000;
+	right: 10px;
+	bottom: 10px;
+	padding: 10px;
+	background-color: #ccc;
+	a {
+		color: @lightBlue;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+}
 /* start css */
 
 html {
@@ -502,7 +517,11 @@ img {
 	padding: 30px;
 	position: relative;
 	/*width: 100%;*/
-
+	h2 {
+		font-size: 2em;
+		margin: 0.4em 0px;
+		line-height: 1.2;
+	}
 }
 .textBlock.centered {
     padding: 30px 240px 30px 80px;
@@ -549,8 +568,8 @@ img {
 }
 
 /* recruit */
-.jobs {
-	.lang {
+div#jobs {
+/*	.lang {
 		float: left;
 		padding: 0 8px 0 8px;
 		font-size: .9em;
@@ -560,7 +579,7 @@ img {
 		a:hover {
 			text-decoration: underline;
 		}
-	}
+	}*/
 	table {
 		width: 100%;
 		border: 0;
@@ -837,6 +856,10 @@ ul.productFilter {
 	background-color: rgb(238, 245, 249);
 	padding: 10px 29px;
 	margin: 0;
+	h3 {
+		font-size: 1.7em;
+		line-height: 110%;
+	}
 	.downloadBox {
 		h4 {
 			border-bottom: 1px solid rgba(65, 156, 203, 0.5);
@@ -866,8 +889,34 @@ ul.productFilter {
 			}
 		}
 	}
+	.panelContent {
+
+	}
+	
 }
 
+.contactBox {
+	margin-bottom: 30px;
+	padding: 0px;
+	.contact {
+		display: inline-block;
+		margin: 0px 0px 20px;
+		vertical-align: top;
+		width: 33%;
+		h4 {
+			display: block;
+			border-bottom: 1px solid rgb(177, 221, 244);
+			color: rgb(65, 64, 66);
+			padding: 3px 0px;
+			font-size: 22px;
+		}
+		p {
+			font-size: 14px;
+			margin: 0px;
+			padding: 3px 0px;
+		}
+	}
+}
 
 .pressReleaseContainer {
 	padding: 30px 0 30px 30px;
@@ -945,12 +994,7 @@ ul.tabs {
 	}
 }
 
-.contactBox {
-	.contact {
-		float: left;
-		padding: 10px;
-	}
-}
+
 
 
 .button.primary {

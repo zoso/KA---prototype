@@ -88,13 +88,51 @@
 	</div>
 	<!-- content -->
 	<div class="wrapper clearfix">
-		<div class="pageHeader clearfix">
-			<div class="headerContent">
-				<h1>Career</h1>		
+		<div class="tileRow clearfix">
+			<div class="tile tile3x2 video_tile">
+				<div class="videoHolder hidden">
+					<iframe id="OneKAFilm" src="//player.vimeo.com/video/75294636?api=1&player_id=OneKAFilm" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+				<div class="tileName">Inspire</div>
+				<div class="tileImg">
+					<img src="img/volvo03.jpg" alt="">
+				</div>
+				<div class="tileContent">
+					<span>
+						Some inspiration here
+						<a href="#" class="playButton">Watch the video</a>
+					</span>
+				</div>
+				
+				<!-- <a class="tileLink" href="#">&nbsp;</a> -->
+			</div>
+			<div class="tile tile1x1 black">
+				<div class="tileName">Inspire</div>
+				<div class="tileImg">
+					<img src="img/volvo03.jpg" alt="">
+				</div>
+				<div class="tileContent">
+						<span>
+							Some inspiration here
+						</span>
+					</div>
+				<a class="tileLink" href="#">&nbsp;</a>
+			</div>
+			<div class="tile tile1x1 black">
+				<div class="tileName">Inspire</div>
+				<div class="tileImg">
+					<img src="img/volvo03.jpg" alt="">
+				</div>
+				<div class="tileContent">
+						<span>
+							Some inspiration here
+						</span>
+					</div>
+				<a class="tileLink" href="#">&nbsp;</a>
 			</div>
 		</div>
-		<div class="jobs textBlock">
-			
+		<div id="jobs" class="textBlock">
+			hello
 		</div>
 	</div>
 	<div class="subNav">
@@ -153,104 +191,82 @@
 <script src="js/script.js"></script>
 <script src="js/Recruit_v0.2.js"></script>
 <script>
+	window.onload = function() {
+		/*log("Window loaded");*/
+	}
+
 	$(document).ready(function($) {
 		function log(m) {
 			window.console && console.log("log: " + m);// || alert("log: "+m); 
 		}
-
-		var jobs = {
-		    "langurl": "http://ka.easycruit.com/indexDES07.html?iso=",
-		    "lang": [
-		        {
-		            "name": "English (UK)",
-		            "img": "img/no.gif",
-		            "shortname": "gb"
-		        },
-		        {
-		            "name": "Nederlands (BE)",
-		            "img": "img/no.gif",
-		            "shortname": "be"
-		        },
-		        {
-		            "name": "Deutsch (DE)",
-		            "img": "img/no.gif",
-		            "shortname": "de"
-		        },
-		        {
-		            "name": "Sweden (SE)",
-		            "img": "img/no.gif",
-		            "shortname": "se"
-		        },
-		        {
-		            "name": "Denmark (DK)",
-		            "img": "img/no.gif",
-		            "shortname": "dk"
-		        },
-		        {
-		            "name": "Norway (NO)",
-		            "img": "img/no.gif",
-		            "shortname": "no"
-		        }
-		    ],
-		    "positions": [
-		        {
-		            "position_title": "Some title here",
-		            "department": "Canada",
-		            "location": "Grand-Mere, Qc",
-		            "closing_date": "04.11.2013",
-		            "url": ""
-		        },
-		        {
-		            "position_title": "Some job title here",
-		            "department": "Norway",
-		            "location": "Grand-Mere, Qc",
-		            "closing_date": "04.11.2013",
-		            "url": ""
-		        },
-		        {
-		            "position_title": "Some title here",
-		            "department": "Canada",
-		            "location": "Grand-Mere, Qc",
-		            "closing_date": "04.11.2013",
-		            "url": ""
-		        },
-		        {
-		            "position_title": "Key Account Sales Manager - Truck & Bus",
-		            "department": "USA - (Suffield) Kongsberg Actuation Systems II, Inc<br>USA - (Grand River) - Kongsberg Actuation Systems II, Inc<br>USA (Novi, Michigan) - Kongsberg Automotive Inc.<br>USA (Easley - South Carolina)",
-		            "location": "USA",
-		            "closing_date": "04.11.2013",
-		            "url": ""
-		        },
-		        {
-		            "position_title": "Some title here",
-		            "department": "Canada",
-		            "location": "Grand-Mere, Qc",
-		            "closing_date": "04.11.2013",
-		            "url": ""
-		        },
-		        {
-		            "position_title": "Some title here",
-		            "department": "Canada",
-		            "location": "Grand-Mere, Qc",
-		            "closing_date": "04.11.2013",
-		            "url": ""
-		        },
-		        {
-		            "position_title": "Some title here",
-		            "department": "Canada",
-		            "location": "Grand-Mere, Qc",
-		            "closing_date": "04.11.2013",
-		            "url": ""
-		        },
-		        {
-		            "position_title": "Some title here",
-		            "department": "Canada",
-		            "location": "Grand-Mere, Qc",
-		            "closing_date": "04.11.2013",
-		            "url": ""
-		        }
-		    ]
+		
+		var IframeCheck = {
+			containers: [
+				".videoHolder",
+				".tileIframe"
+			],
+			init: function() {
+				for (var i = 0; i < this.containers.length; i++) {
+					if ($(this.containers[i]).length > 0) {
+						this.setHeight(this.containers[i]);
+					} 
+				}
+			},
+			setHeight: function(el) {
+				if ($(el).height() != null) {
+					$(".wrapper").children().find($(el)).each(function(i) {
+						var str = $(this).parentsUntil('tile').attr('class');
+						if (str.indexOf("tile2x1") >= 0) {
+							$(this).children('iframe').height('256px');
+				        } else if (str.indexOf("tile2x2") >= 0) {
+				            $(this).children('iframe').height('512px');
+				        } else if (str.indexOf("tile3x2") >= 0) {
+				            $(this).children('iframe').height('512px');
+				        } else {
+				            //console.log("no iframe on this page");
+				        }
+					});
+				}
+			}
 		}
+		IframeCheck.init();
+		/*var frameContainer;
+		var isIFrameFound = false;
+		
+		if ($(".videoHolder iframe").length == 0) {
+			log("no iframe");
+		} else {
+			log("iframe found");
+		}
+*/
+
+
+		/*if (frameContainer.height() != null) {
+		    $(".wrapper").children().find(".videoHolder").each(function (i) {
+		        var str = $(this).parent().attr('class');
+		        //console.log("frame: " + str);
+		        if (str.indexOf("tile2x1") >= 0) {
+		            $(this).children('iframe').height('256px');
+		        } else if (str.indexOf("tile2x2") >= 0) {
+		            $(this).children('iframe').height('512px');
+		        } else if (str.indexOf("tile3x2") >= 0) {
+		            $(this).children('iframe').height('512px');
+		        } else {
+		            //console.log("no match");
+		        }
+		    });
+		}*/
+
+		$("a.playButton").click(function(e) {
+
+			$(".tileRow").children().find('.videoHolder').each(function() {
+				$(this).removeClass("hidden");
+				$(this).nextAll().addClass('hidden');
+			});
+		});
+
+		var jobs = {"Positions":[{"Title":"Plant Manager","Url":"https://ka.easycruit.com/vacancy/1098855/93391","Department":"United Kingsdom (Normanton) - Kongsberg Actuation Systems Ltd","Location":"Normanton, UK","ClosingDate":"15 January 2014"},{"Title":"Assistant Chief Engineer","Url":"https://ka.easycruit.com/vacancy/1102067/87533","Department":"RnD - Sweden, Mullsjø","Location":"Mullsjö (Sweden)","ClosingDate":"15th January 2014"},{"Title":"Design Engineer ePower ","Url":"https://ka.easycruit.com/vacancy/1097409/87533","Department":"RnD - Sweden, Mullsjø","Location":"Mullsjö (Sweden)","ClosingDate":""},{"Title":"Automation Engineer","Url":"https://ka.easycruit.com/vacancy/1098907/6996","Department":"Poland - Kongsberg Automotive Sp.z.o.o.","Location":"Pruszkow","ClosingDate":"31 of January"},{"Title":"Global Commodity Buyer Electronics","Url":"https://ka.easycruit.com/vacancy/1070485/87553","Department":"Purchasing - Sweden, Göteborg","Location":"Gothenburg (Sweden)","ClosingDate":"2013-11-30"},{"Title":"Applications Engineering Manager","Url":"https://ka.easycruit.com/vacancy/1108599/93481","Department":"USA (Easley - South Carolina)","Location":"Easley, SC","ClosingDate":"07 Feb 2014"},{"Title":"Human Resource Business Partner","Url":"https://ka.easycruit.com/vacancy/1108605/93481","Department":"USA (Easley - South Carolina)","Location":"Easley, South Carolina USA","ClosingDate":"7 February 2014"},{"Title":"Trainees Sweden","Url":"https://ka.easycruit.com/vacancy/1073701/87537","Department":"Trainee - Sweden, Mullsjø","Location":"Mullsjö/Gothenburg, Sweden","ClosingDate":"1 March 2014"},{"Title":"Trainee Norway","Url":"https://ka.easycruit.com/vacancy/1067135/6998","Department":"Norway, Kongsberg","Location":"","ClosingDate":"28.02.2014"}]}
+
 
 
 		Recruit.init(jobs);

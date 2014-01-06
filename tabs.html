@@ -87,6 +87,7 @@
 		</div>
 	</div>
 	<!-- content -->
+	<div id="toTop" style="display:none;"><a href="#">To top</a></div>
 	<div class="wrapper clearfix">
 		<div class="pageHeader clearfix">
 			<!-- <div class="headerContent">
@@ -106,8 +107,52 @@
 				</div>
 			</div>
 		</div>
-		<div class="textblock clearfix">
-			&nbsp;
+		<div class="textBlock clearfix">
+			<h2>Worldwide Contacts</h2>
+			<div class="contactBox left clearfix">
+				<div class="contact">
+					<h4>Title</h4>
+					<p><strong>Turid Skogen</strong>, vandrer</p>
+					<p>Phone: 33 33 33 33</p>
+					<p><a href="#">Email:turid@skogen.no</a></p>
+				</div>
+				<div class="contact">
+					<h4>Title</h4>
+					<p><strong>Turid Skogen</strong>, vandrer</p>
+					<p>Phone: 33 33 33 33</p>
+					<p><a href="#">Email:turid@skogen.no</a></p>
+				</div>
+				<div class="contact">
+					<h4>Title</h4>
+					<p><strong>Turid Skogen</strong>, vandrer</p>
+					<p>Phone: 33 33 33 33</p>
+					<p><a href="#">Email:turid@skogen.no</a></p>
+				</div>
+				<div class="contact">
+					<h4>Title</h4>
+					<p><strong>Turid Skogen</strong>, vandrer</p>
+					<p>Phone: 33 33 33 33</p>
+					<p><a href="#">Email:turid@skogen.no</a></p>
+				</div>
+				<div class="contact">
+					<h4>Title</h4>
+					<p><strong>Turid Skogen</strong>, vandrer</p>
+					<p>Phone: 33 33 33 33</p>
+					<p><a href="#">Email:turid@skogen.no</a></p>
+				</div>
+				<div class="contact">
+					<h4>Title</h4>
+					<p><strong>Turid Skogen</strong>, vandrer</p>
+					<p>Phone: 33 33 33 33</p>
+					<p><a href="#">Email:turid@skogen.no</a></p>
+				</div>
+				<div class="contact">
+					<h4>Title</h4>
+					<p><strong>Turid Skogen</strong>, vandrer</p>
+					<p>Phone: 33 33 33 33</p>
+					<p><a href="#">Email:turid@skogen.no</a></p>
+				</div>
+			</div>
 		</div>
 		<!-- <div class="callToAction clearfix" style="clear: both;">
 			<p>Some important message here</p>
@@ -115,7 +160,7 @@
 		</div> -->
 		<!-- <section> -->
 			<!-- <p>Press Releases</p> -->
-			<div class="textBlock clearfix">
+			<div class="clearfix">
 				<ul class="tabs">
 					<li class="selected" data-panelref="panelScandinavia"><a href="#">Scandinavia</a></li>
 					<li data-panelref="panelEurope"><a href="#">Europe</a></li>
@@ -123,10 +168,8 @@
 					<li data-panelref="panelAmerica"><a href="#">North & south America</a></li>
 				</ul>
 				<div class="contentBox">
-					<div id="panelScandinavia">
-						<div class="panelTitle">
-							<h3>Scandinavia</h3>
-						</div>
+					<div id="panelScandinavia" >
+						<h3>Scandinavia</h3>
 						<div class="panelContent">
 							<div class="contactBox left clearfix">
 								<div class="contact">
@@ -199,15 +242,15 @@
 						</div>
 					</div>
 					<div id="panelEurope">
-						<div class="panelTitle">Europe</div>
+						<h3>Europe</h3>
 						<div class="panelContent">Some europeen content here then</div>
 					</div>
 					<div id="panelAsia">
-						<div class="panelTitle">Asia is right here</div>
+						<h3>Asia is right here</h3>
 						<div class="panelContent">And got this content</div>
 					</div>
 					<div id="panelAmerica">
-						<div class="panelTitle">North and South America</div>
+						<h3>North and South America</h3>
 						<div class="panelContent">Aslo got some content lined up right here <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, placeat, aliquid, dicta, consequuntur magnam illum necessitatibus porro sit est eos ducimus quas veniam officiis vel molestias ipsam repellat non veritatis.</div>
 						<div>Labore, totam, et, neque similique earum vero dolores harum magni animi magnam laudantium quis natus maiores! Autem, ex, placeat, maiores rerum repellendus officia non recusandae hic voluptate laboriosam porro labore.</div>
 						<div>Soluta iste ad tenetur totam sunt provident! Porro, quae, quis corporis dolor rem rerum blanditiis est. Quidem, dicta accusantium minus explicabo architecto. Ea, vel, iusto iste temporibus minima asperiores voluptate.</div>
@@ -216,6 +259,17 @@
 				</div>
 			</div>
 		<!-- </section> -->
+	</div>
+	<div class="subNav clearfix">
+		<div class="wrapper">
+			<ul>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+			</ul>
+		</div>
 	</div>
 	<!-- footer -->
 	<div id="footer" class="clearfix">
@@ -317,6 +371,45 @@
 		};
 		PanelControl.init();
 
+		/*$(function() {
+			log("SCROOLLL");
+			$.fn.scrollToTop = function() {
+				$(this).hide().removeAttr('href');
+				if ($(window).scrollToTop() != "0") {
+					$(this).fadeIn("slow");
+				}
+				var scrollDiv = $(this);
+				$(window).scroll(function() {
+					if ($(window).scrollToTop() == "0") {
+						$(scrollDiv).fadeOut("slow");
+					} else {
+						$(scrollDiv).fadeIn("slow");
+					}
+				});
+				$(this).click(function() {
+					$("html, body").animate({
+						scrollTop: 0
+					}, "slow")
+				});
+			}
+		});
+
+			$("#toTop").scrollToTop();*/
+
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 200) {
+				$("#toTop").fadeIn("slow");
+			} else {
+				$("#toTop").fadeOut("slow");
+			}
+		});
+		$("#toTop").click(function(e) {
+			e.preventDefault();
+			$("html, body").animate({
+				scrollTop: 0
+			}, "slow");
+			return false;
+		});
 
 		$(window).scroll(function(e) {
 			var menuHeight = $("#top").height();
@@ -346,5 +439,6 @@
 		});
 
 	});
+
 </script>
 </html>
