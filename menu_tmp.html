@@ -1,0 +1,402 @@
+#mainNav { 
+	display:none; 
+	position:absolute; 
+	left:0; 
+	top: -10px; 
+	right: 0; 
+	padding: 10px 20px; 
+	background-color: rgba(235,236,237,1.00);  
+	-moz-box-shadow:    0px 3px 9px 0px rgba(65,64,66,0.50);
+	-webkit-box-shadow: 0px 3px 9px 0px rgba(65,64,66,0.50);
+	box-shadow:         0px 3px 9px 0px rgba(65,64,66,0.50);
+}
+
+#mainNav ul { 
+	list-style-type:none; 
+	margin:0; 
+	padding:0; 
+}
+
+#mainNav >ul { 
+	padding-top:10px; 
+}
+
+#mainNav a { 
+	display:block; 
+	color:#222; 
+	text-decoration:none; 
+}
+
+#mainNav ul.level1>li>a, #mainNav ul.serviceMenu>li>a  { 
+	color:#222; 
+}
+
+#mainNav ul.languageSelect:after { 
+	clear:both; content:" "; 
+	display:block; 
+}
+
+ul.languageSelect { 
+	list-style-type:none; 
+}
+
+ul.languageSelect li { 
+	float:left; 
+}
+
+ul.languageSelect li a { 
+	display:block; 
+	padding:7px 12px; 
+	color:#222; 
+	font-size:14px; 
+}
+
+ul.languageSelect li a.selected { 
+	background-color:#e2e3e4; 
+}
+
+
+
+ul.level1 { 
+	display:block; 
+	border-top:1px solid #ddd; 
+	padding-top:10px; 
+}
+
+ul.level1 a { 
+	padding:8px 10px; font-size:14px; 
+}
+
+ul.level1 li { 
+	display:block; margin:0; padding:0; 
+}
+
+ul.level1>li ul { 
+	display:none; 
+}
+
+ul.level1>li.selected { 
+	background-color:rgba(130,131,132,0.1);
+}
+
+ul.level1>li.selected ul { 
+	display:block; background-color:rgba(130,131,132,0.1);
+}
+
+ul.level1>li ul.serviceMenu { 
+	display:block; 
+}
+
+ul.level1>li>a, ul.serviceMenu>li>a { 
+	font-size:18px; font-weight:bold; margin-bottom:0; 
+}
+
+ul.level2 a { 
+	font-size:14px; 
+}
+
+#mainNav ul.level1 a.selected { 
+	background-color:rgba(70,157,201,0.90); color:#fff; 
+}
+
+
+<div id="top" class="wrapper">
+            <div class="menuContainer">
+                <nav style="display: block;" id="mainNav">     
+					<ul class="level1 clearfix">
+				        <li>
+					        <a href="/products--services/">Products &amp; Services</a>
+					    </li>
+					    <li>
+					        <a href="/careers/">Careers</a>
+					            <ul class="level2">
+				                    <li class="">
+								        <a href="/careers/possibilities-within-ka/">Possibilities Within KA</a>
+								    </li>
+								    <li class="">
+								        <a href="/careers/our-people1/">Our People</a>
+								    </li>
+
+	            				</ul>
+	    				</li>
+					    <li class="selected">
+					        <a href="/innovation/">Innovation</a>
+					            <ul class="level2">
+					                <li class="selected">
+								        <a href="/innovation/case-studies/">Case Studies</a>
+								    </li>
+								    <li class="">
+								        <a href="/innovation/our-methodology/">Our Methodology</a>
+								    </li>
+
+								</ul>
+						</li>
+					    <li>
+					        <a href="/investor-relations/">Investor Relations</a>
+					            <ul class="level2">
+					                <li class="">
+					        			<a href="/investor-relations/corporate-governance/">Corporate Governance</a>
+					    			</li>
+		            			</ul>
+					    </li>
+					    <li>
+					    	<ul class="serviceMenu">
+					            <li class="">
+							        <a href="/about-us/">About Us</a>
+							    </li>
+							    <li class="">
+							        <a href="/media--news/">Media &amp; News</a>
+							    </li>
+							    <li class="">
+							        <a href="/contact-us/">Contact Us</a>
+							    </li>
+					    	</ul>
+					    </li>
+					</ul>
+				</nav>
+
+--------------------------------
+
+@import '../_vars.less';
+@import '../_mixins.less';
+
+#top {
+    height: 60px;
+    margin-top: 10px;
+    .menuContainer {
+        position: relative;
+        nav#mainNav {
+            display: none;
+            position: absolute;
+            z-index: @menuContainer;
+            left: 0px;
+            top: -10px;
+            right: 0px;
+            padding: 10px 20px;
+            background-color: rgba(235,236,237,1.00);
+            .box-shadow(0px 3px 9px 0px rgba(65,64,66,0.50));
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            > ul {
+                padding-top: 10px;
+            }
+
+            a {
+                display: block;
+                color: #222;
+                text-decoration: none;
+                padding: 8px 0 8px 10px;
+            }
+
+            ul.level1 {
+                border-top: 1px solid rgb(221, 221, 221);
+                padding-top: 10px;
+                margin-top: 60px;
+                display: block; 
+                li {
+                    width: 20%;
+                    float: left;
+                    a {
+                        color: #222;
+                        transition: background @transTime ease-in;
+                        font-weight: bold;
+                        font-size: 1.2em;
+                    }
+                    
+                    /*a.selected {
+                        background-color: rgba(70, 157, 201, 0.9);
+                        color: rgb(255, 255, 255);
+                    }*/
+                   
+                    a:hover, a:focus {
+                        color: #000;
+                        background: #bbb;
+                    }
+
+                    ul.level2 {
+                        li {
+                            width: 100%;
+                            display: block;
+                            margin-bottom: 0px;
+                            a {
+                                color: #222;
+                                margin: 0;
+                                transition: background @transTime ease-in;
+                                font-weight: normal;
+                                font-size: .9em;
+
+                            }
+                            a.selected {
+                                
+                            }
+
+                            a:hover, a:focus {
+                                background: #bbb;
+                            }
+                        }
+                        li.selected {
+                            background-color: rgba(70, 157, 201, 0.9);
+
+                            a {
+                                color: rgb(255, 255, 255);
+                            }
+                        }
+                    }
+
+                    ul.serviceMenu {
+                        li {
+                            width: 100%;
+
+                            a {
+                            }
+                        }
+                    }
+                }
+
+                li.selected {
+                   //background-color: #ccc;
+                    a.active {
+                        color: rgb(255, 255, 255);
+                        background-color: rgba(70, 157, 201, 0.9);
+                    }
+                    ul {
+                        background-color:rgba(130,131,132,1);
+                        a {
+                            
+                        }
+                    }
+                }
+            }
+
+            ul.languageSelect {
+                position: absolute;
+                right: 20px;
+                li {
+                    float: left;
+                    display: block;
+                    a {
+                        padding: 7px 12px;
+                        font-size: .9em;
+                        text-decoration: none;
+                    }
+                    a:hover, a:focus {
+                        background-color: #e2e3e4;
+                        text-decoration: underline;
+                    }
+                }
+
+                li.selected {
+                    padding: 7px 12px;
+                    font-size: .9em;
+                    background-color: #e2e3e4;
+                }
+            }
+
+            ul.languageSelect:after {
+                clear: both;
+                content: " ";
+                display: block;
+            }
+        }
+    }
+
+    .menu {
+        float: left;
+        margin-left: 10px;
+        z-index: @menuBtn;
+        position: relative;
+        .menuButton {
+            text-align: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(150,152,154,1.00);
+            background-image: url(/Styles/gfx/menuIcon.png);
+            background-repeat: no-repeat;
+            background-position: center 2px;
+            background-size: 100%;
+
+            span {
+                display: block;
+            }
+        }
+
+        .menuButton:hover {
+            background-color: rgba(100,102,104,1.00);
+        }
+
+        .menuButton.active {
+            background-color: #aaa;
+        }
+
+        .menuButtonTxt {
+            font-size: 0.75em;
+            padding-top: 3px;
+            text-align: center;
+            margin-top: 1px;
+            line-height: 1em;
+        }
+    }
+
+    .breadContainer {
+        margin-left: 10px;
+        padding-left: 10px;
+        padding-top: 3px;
+        border-left: 1px solid @darkGrey;
+        float: left; 
+        .titleContainer {
+            h1 {
+                font-size: 1.8em;
+            }
+            a {
+                font-size: 1.8em;
+                color: rgb(86, 86, 86);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+        .breadCroumbs {
+            font-size: 0.8em;
+            ul {
+                list-style-type: none;
+                li {
+                    float: left;
+                    margin: 0px;
+                    padding: 0px;
+                    font-size: 13px;
+                    line-height: 1.1em;
+                    a {
+                        text-decoration: none;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                    li:after {
+                        content: "/";
+                        color: rgb(204, 204, 204);
+                        padding-right: 5px;
+                    }
+            }
+        }
+    }
+
+    .logoContainer {
+        float: right;
+        width: 200px;
+        position: relative;
+        #logo {
+            width: 300px/1.7;
+            height: 84px/1.7;
+            background-image: url(/Styles/gfx/logo.png);
+            background-size: contain;
+            background-position: top right;
+            background-repeat: no-repeat;
+        }
+    }
+}

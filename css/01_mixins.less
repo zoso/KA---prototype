@@ -19,6 +19,10 @@
 	margin-right: auto;
 }
 
+.tileContentWidth(@w: 0, @margin: 0) {
+    width: ((@w - @margin*2) * 100%)/@w;
+}
+
 .background-gradient(@start, @stop) {
     background: mix(@start, @stop, 50%);
     background: -webkit-gradient(linear, left top, left bottom, from(@start), to(@stop));
@@ -53,22 +57,26 @@
     outline: 1px solid @col;
 }
 
-/* test - switch */
-.myFunc(@dir) when (@dir = bottom) {
-    background: #330011;
+@defaultfontsize: 16;
+@defaultlineheight: @defaultfontsize*1.375;
+
+.font(@fontsize:16,@lineheight:24,@multiplier:1,@lineheightreducer:1) {
+    font-size: (@fontsize/@defaultfontsize)*1em;
+    line-height: @lineheight/@fontsize/@lineheightreducer;
+    //margin: (@lineheight/@fontsize*(@multiplier/(@lineheight/@defaultlineheight)))*1em 0 0; original, harder-to-read version
+    //margin: ((@multiplier * @defaultlineheight) / @fontsize) * 1em 0 0;
 }
 
-.myFunc(@dir) when (@dir = left) {
-    background: #1e0011;
+.boxes(@paddingtop:1,@paddingbottom:1,@bordertop:0,@borderbottom:0) {
+    @border-top-width: @bordertop*1px;
+    @border-bottom-width: @borderbottom*1px;
+    padding-top: e(%("%sem%s", (((@paddingtop*@defaultlineheight)-@bordertop)/@defaultfontsize), `@{bordertop}>=1?'; border-top-width: @{border-top-width}':''` )); 
+    padding-bottom: e(%("%sem%s", (((@paddingbottom*@defaultlineheight)-@borderbottom)/@defaultfontsize)*1, `@{borderbottom}>=1?'; border-bottom-width: @{border-bottom-width}':''` ));
 }
 
-.myFunc(@dir) when (@dir = right) {
-    background: #aa0011;
-}
-
-.myFunc(@dir) when (@dir = top) {
-    background: #bb0011;
-}
+/*h1 {
+ .font(48,25);
+}*/
 
 /* hide email adresses */
 .email:after {

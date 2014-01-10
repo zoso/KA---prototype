@@ -27,7 +27,7 @@
 					<li class="selected">
 						<a href="#">Products &amp; Services</a>
 						<ul class="level2">
-							<li><a class="selected" href="#">Commercial Vehicles</a></li>
+							<li><a class="" href="#">Commercial Vehicles</a></li>
 							<li><a href="#">Passenger Cars</a></li>
 							<li><a href="#">Off-Highway Vehicles</a></li>
 							<li><a href="#">Aftermarket</a></li>
@@ -204,6 +204,7 @@
 				this.change(3);
 			},
 			change: function(id) {
+				log("change "+id);
 				this.container.children().each(function(i) {
 					if (i != id) {
 						if (this.active != 0) {
@@ -214,6 +215,9 @@
 						this.active = i;
 					}
 				});
+				if (id == 1 && id == 2) {
+
+				}
 			},
 			show: function(id) {
 				this.container.children().eq(id).show();
@@ -224,11 +228,9 @@
 		$('.subCategories ul li').click(function(e) {
 			e.preventDefault();
 			$(this).parent().children().find('a').each(function(i) {
-				log("...........");
 				$(this).removeClass('selected');
 			});
 			var index = $('.subCategories ul li').index(this);
-			log("clicked "+index);
 			ImgSlider.change(index);
 			ProductList.sort($(this).children('a').text().toLowerCase());
 			$(this).children('a').addClass('selected');
@@ -236,16 +238,34 @@
 
 		$('ul.productFilter li').click(function(e) {
 			e.preventDefault();
-			ProductList.sortCat($(this).find('a').data("id"));
+			var el = $(this).find('a');
+			var ul = $('ul.productFilter');
+			ProductList.sortCat(el.data("id"));
+			
+			ul.children().find('a').each(function(i) {
+				if ($(this).hasClass('selected')) {
+					$(this).removeClass('selected');
+				}
+			});
+
+			el.addClass('selected');
+			return false;
 		});
 
 		$('a.view_all').click(function(e) {
 			e.preventDefault();
 			ProductList.reset();
+			ImgSlider.change(3);
 			$('.subCategories ul').children().find('a').each(function(i) {
-				log("...........");
 				$(this).removeClass('selected');
 			});
+			return false;
+		});
+
+		$('.tileProduct').click(function(e) {
+			e.preventDefault();
+			log("hello");
+			return false;
 		});
 
 		ProductList.init();

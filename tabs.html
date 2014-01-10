@@ -16,11 +16,11 @@
 					<li><a href="#">français</a></li>
 				</ul>
 				<ul class="level1">
-					<li class="selected">
-						<a href="landingPage_products-and-services.html">Products &amp; Services</a>
+					<li class="open">
+						<a href="landingPage_products-and-services.html">Products &amp; Services - s</a>
 						<ul class="level2">
-							<li><a class="selected" href="#">Commercial Vehicles</a></li>
-							<li><a href="#">Passenger Cars</a></li>
+							<li><a href="#">Commercial Vehicles</a></li>
+							<li class="selected"><a href="#">Passenger Cars - s</a></li>
 							<li><a href="#">Off-Highway Vehicles</a></li>
 							<li><a href="#">Aftermarket</a></li>
 							<li><a href="#">Power Electronics</a></li>
@@ -45,10 +45,10 @@
 							<li><a href="#">Patent Management</a></li>
 						</ul>
 					</li>
-					<li class="selected">
+					<li>
 						<a href="landingPage_investor-relations.html">Investor Relations</a>
 						<ul class="level2">
-							<li><a href="#">Annual General Meeting</a></li>
+							<li class=""><a href="#">Annual General Meeting</a></li>
 							<li><a href="#">Board &amp; Management</a></li>
 							<li><a href="#">Corporate Governance</a></li>
 							<li><a href="#">Events &amp; Presentations</a></li>
@@ -319,6 +319,50 @@
 			window.console && console.log("log: " + m);// || alert("log: "+m); 
 		}
 
+		var MenuController = {
+			menu: 'nav#mainNav',
+			lev1: 'ul.level1',
+			lev2: 'ul.level2',
+			init: function() {
+				var level2selected = false;
+				var lev1, lev2;
+				$(this.lev1).children('li').each(function(i) {
+					if ($(this).hasClass('selected')) {
+						lev1 = $(this);
+						lev2 = $(this).children('ul');
+						$(this).find('ul').children().each(function(j) {
+							if ($(this).hasClass('selected')) {
+								//log("lev 2 has selected");
+								lev2 = $(this);
+								level2selected = true;
+							}
+						});
+					}
+				});
+				if (level2selected == true) {
+					$(lev1).find('a').css({
+						'background-color': 'rgba(130, 131, 132, .1)',
+						'color': '#222'
+					});
+					$(lev2).find('a').css({
+						'background-color':'rgba(70, 157, 201, 0.9)',
+						'color': '#fff'
+					});
+				} else {
+					$(lev1).find('a').css({
+						'background-color':'rgba(70, 157, 201, 0.9)',
+						'color': '#fff'
+					});
+					$(lev2).find('a').css({
+						'background-color': 'rgba(130, 131, 132, .1)',
+						'color': '#222'
+					});
+				}
+			}
+
+		}
+		MenuController.init();
+
 
 		var PanelControl = {
 			ul: $("ul.tabs li a"),
@@ -339,7 +383,7 @@
 				this.open(this.defaultOpen);
 			},
 			open: function(id) {
-				log("open "+id + " > "+this.speed);
+				/*log("open "+id + " > "+this.speed);*/
 				PanelControl.setInActive($(this));
 
 				this.container.children().each(function(i, el) {
@@ -411,28 +455,28 @@
 			return false;
 		});
 
-		$(window).scroll(function(e) {
+		/*$(window).scroll(function(e) {
 			var menuHeight = $("#top").height();
 			var scroll = $(window).scrollTop();
 			var rand = Math.round(Math.random() * 200);
 			if (scroll >= menuHeight) {
 				log("> show floating menu "+scroll);
 				$("#top").addClass("show");
-				/*$("#top").animate({
+				$("#top").animate({
 					top: "-10px"
 				}, 1000, function() {
 
-				});*/
+				});
 			}
 
 			if (scroll < menuHeight) {
 				log("> remove floating menu "+scroll);
-				//$(".menuContainer").removeClass("show");
+				$(".menuContainer").removeClass("show");
 				if ($("#top").hasClass("show")) {
 					$("#top").removeClass("show");
 				}
 			}
-		});
+		})*/;
 
 		$(window).resize(function(e) {
 			

@@ -1,22 +1,14 @@
 var ProductList = {
 	dataUrl: 'js/ProductList.js',
 	container: '.productGridContainer',
+	speed: 100,
 	init: function() {
 		var call = $.getJSON(this.dataUrl, function(data) {
 			
 		})
 		.done(function(data) {
 			$.each( data, function( key, val ) {
-				
-				/*if (key == 'cabin') {
-					ProductList.createTile(val, key);
-				}
-				if (key == 'driveline') {
-					ProductList.createTile(val, key);
-				}
-				if (key == 'chassis') {
-					
-				}*/
+
 				ProductList.createTile(val, key);
 			});
 		})
@@ -42,27 +34,26 @@ var ProductList = {
 				if ($(this).is(":visible")) {
 					//$(this).fadeOut(100+(i*10));
 				} else {
-					$(this).fadeIn(100+(i*10));
+					$(this).fadeIn(this.speed);
 				}
 			} else {
-				$(this).fadeOut(100+(i*10));
+				$(this).fadeOut(this.speed-90);
 			}
 		});
 	},
 	sortCat: function(id) {
-		console.log("sortCat "+id);
 		$(this.container).children().each(function(i) {
 			if ($(this).data("cid") == id) {
-				$(this).fadeIn(100+(i*10));
+				$(this).fadeIn(this.speed);
 			} else {
-				$(this).fadeOut(100+(i*10));
+				$(this).fadeOut(this.speed-90);
 			}
 		});
 	},
 	reset: function() {
 		$(this.container).children().each(function(i) {
 			if ($(this).is(':hidden')) {
-				$(this).fadeIn(100+(i*100));
+				$(this).fadeIn(this.speed);
 			}
 		});
 	}

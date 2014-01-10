@@ -3,6 +3,8 @@
 @import '01_mixins.less';
 @import '03_fonts.less';
 @import '02_sprites.less';
+@import '20_mainmenu.less';
+/*@import 'tmp_menu.less';*/
 @import 'tiles.less';
 @import 'arrow.less';
 
@@ -21,12 +23,12 @@
 #toTop {
 	position: fixed;
 	z-index: 2000;
-	right: 10px;
-	bottom: 10px;
+	right: 15px;
+	bottom: 20px;
 	padding: 10px;
-	background-color: #ccc;
+	background-color: @mediumGrey;
 	a {
-		color: @lightBlue;
+		color: #000;
 		text-decoration: none;
 	}
 	a:hover {
@@ -110,6 +112,44 @@ img {
 	min-height: 200px;
 }
 
+a.siteLink { 
+	position:relative; 
+	margin: 0; 
+	text-decoration: none; 
+	color: #fff;
+}
+a.siteLink:before { 
+	content:""; 
+	display:inline-block; 
+	border:0.35em solid transparent; 
+	border-left-color:#666;
+}
+a.siteLink:hover {
+	text-decoration: underline;
+}
+.tile a.siteLink:before { 
+	border-left-color:#fff; 
+}
+
+.tile.bright a.siteLink:before { 
+	border-left-color:#666; 
+}
+a.siteLink.video { 
+	display:inline-block; 
+	padding:10px 18px; 
+	background-color: #006BB7; 
+	font-size:140%;
+	transition: background @transTime ease-in;
+}
+
+a.siteLink.video:hover {
+	background-color: rgba(70, 157, 201, 0.9);
+}
+
+a.siteLink.video:after { 
+	clear:both; 
+}
+
 //.arrow(10px, #08C, bottom, 50%, 1px, darken(#08C, 10%))
 
 /*test floating menu*/
@@ -129,7 +169,7 @@ img {
 }
 
 /* dom */
-#top {
+/*#top {
 	height: 60px;
 	margin-top: 10px;
 	.menuContainer {
@@ -149,28 +189,24 @@ img {
 				margin: 0;
 			}
 			li {
-				/*float: left;
-				display: block;*/
-				/*padding: 5px;*/
+				
 			}
 			a {
 				display: block;
 				color: #222;
 				text-decoration: none;
-				padding: 8px 0 10px 10px;
-				margin-bottom: 10px;
+				padding: 8px 0 8px 10px;
+
 			}
 			ul.level1 {
-				/*outline: 1px solid #434;*/
 				border-top: 1px solid rgb(221, 221, 221);
 				padding-top: 10px;
 				margin-top: 60px;
 				li {
 					width: 20%;
 					float: left;
-					margin-bottom: 10px;
+
 					a {
-						/**/
 						color: #222;
 						font-size: 1em;
 						transition: background @transTime ease-in;  
@@ -185,24 +221,24 @@ img {
 						background: #bbb;
 					}
 					ul.level2 {
-						/*background: #eee211;*/
+
 						li {
 							width: 100%;
 							display: block;
-							margin-bottom: 0;
-							/*background: #aaaddd;*/
+							margin-bottom: 0px;
+
 							a {
 								color: #222;
-								/*width: 100%;*/
+
 								margin: 0;
 								transition: background @transTime ease-in;
 								font-weight: normal;
 								font-size: .9em;
 							}
 							a.selected {
-								/*width: 100%;*/
-								color: #fff;
-								background: #bbb;
+								
+								background-color: rgba(70, 157, 201, 0.9);
+								color: rgb(255, 255, 255);
 							}
 							a:hover, a:focus {
 								background: #bbb;
@@ -210,9 +246,9 @@ img {
 						}
 					}
 					ul.serviceMenu {
-						/*background: #aa9922;*/
+
 						li {
-							/*outline: 1px solid #aa4400;*/
+							
 							width: 100%;
 							a {
 
@@ -221,8 +257,12 @@ img {
 					}
 				}
 				li.selected {
-					/*outline: 1px solid #ff2200;	*/
-					
+						
+					a {
+						
+						background-color: rgba(70, 157, 201, 0.9);
+						color: rgb(255, 255, 255);
+					}
 					background-color: rgba(130, 131, 132, 0.1);
 					ul {
 						background-color: rgba(130, 131, 132, 0.1);
@@ -233,7 +273,7 @@ img {
 			ul.languageSelect {
 				position: absolute;
 				right: 20px;
-				top: 10px;
+
 				li {
 					float: left;
 					display: block;
@@ -261,7 +301,7 @@ img {
 		position: relative;
 		.menuButton {
 			cursor: pointer;
-			/*display: inline-block;*/
+
 			text-align: center;
 			width: 36px;
 			height: 36px;
@@ -318,7 +358,7 @@ img {
 	}
 
 	.logoContainer {
-		/*display: inline-block;*/
+
 		float: right;
 		width: 200px;
 		position: relative;
@@ -329,13 +369,11 @@ img {
 			background-size: contain; 
 			background-position: top right; 
 			background-repeat: no-repeat; 
-			/*position: absolute; 
-			top:10px; 
-			right:10px; 	*/
+
 		}
 
 	}
-}
+}*/
 
 #focusArea {
 	/* Masthead */
@@ -345,20 +383,11 @@ img {
 		background-color:#ababab; 
 		background-image:url(../img/masthead.jpg); 
 		background-repeat: no-repeat; 
-		/*-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size:cover; */
 		background-position:top center;
 		-webkit-background-size: 100% auto; 
 	    -moz-background-size: 100% auto; 
 	    -o-background-size: 100% auto; 
 	    background-size: 100% auto; 
-	    /*-webkit-background-size: cover; 
-	    -moz-background-size: cover; 
-	    -o-background-size: cover; 
-	    background-size: cover; */
-	    /*background-attachment: fixed;*/
 		.clearfix();
 		.vision {
 			background-color: rgb(70,157,201); /* IE8 */
@@ -372,7 +401,7 @@ img {
 			h1 {
 				margin-top: 30px;
 				padding: 50px 40px;
-				font-size: 48px;
+				.font(48);
 				margin: 0;
 				line-height: 110%;
 			}
@@ -723,6 +752,14 @@ ul.productFilter {
 			color: #000;
 			font-size: .8em;
 		}
+		a.selected {
+			background-color: rgb(70, 157, 201);
+			color: rgb(255, 255, 255);
+		}
+		a:hover {
+			background-color: rgb(255, 255, 255);
+			color: rgb(17, 17, 17);
+		}
 	}
 }
 
@@ -756,6 +793,9 @@ ul.productFilter {
 			width: @wrapperWidth/2;
 			margin: 20px;
 			border-right: 1px solid rgb(221, 221, 221);
+			p {
+				padding-right: 10px;
+			}
 		}
 		.social {
 			float: left;
@@ -900,9 +940,9 @@ ul.productFilter {
 	padding: 0px;
 	.contact {
 		display: inline-block;
-		margin: 0px 0px 20px;
+		margin: 0px 5px 20px;
 		vertical-align: top;
-		width: 33%;
+		width: 32%;
 		h4 {
 			display: block;
 			border-bottom: 1px solid rgb(177, 221, 244);

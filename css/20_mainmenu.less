@@ -1,0 +1,253 @@
+@import '0_vars.less';
+@import '01_mixins.less';
+
+@selectedBG: rgba(70, 157, 201, 0.9);
+@selectedLiBg: rgba(130, 131, 132, .1);
+@selectedUlBg: rgba(130, 131, 132, 0.1);
+@hoverL1: rgba(0, 0, 0 , 0.10);
+//@menuBg: rgba(235,236,237,1.00);
+
+
+@menuBg: rgb(235, 235, 236);
+@selectedLevel1bg: rgba(223, 223, 224, 1);
+@selectedLevel2bg: rgba(213, 213, 214, .5);
+@selectedLiBg: rgb(110, 160, 201);
+
+.active_menu {
+	background-color: @selectedLiBg;
+	color: #fff;
+}
+
+#top {
+    height: 60px;
+    margin-top: 10px;
+    .menuContainer {
+        position: relative;
+        nav#mainNav {
+            display: none;
+            position: absolute;
+            z-index: @menuContainer;
+            left: 0px;
+            top: -10px;
+            right: 0px;
+            padding: 10px 20px;
+            background-color: @menuBg;
+            .box-shadow(0px 3px 9px 0px rgba(65,64,66,0.50));
+            
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            a {
+                display: block;
+                color: #222;
+                text-decoration: none;
+                padding: 8px 0 8px 10px;
+            }
+
+            ul.level1 {
+                border-top: 1px solid rgb(221, 221, 221);
+                padding-top: 10px;
+                margin-top: 60px;
+                display: block;
+                li.open,
+                li {
+                    width: 20%;
+                    float: left;
+                    a {
+                        margin-bottom: 10px;
+                        font-weight: bold;
+                        .font(18, 1);
+                    }
+                    a:hover {
+                        background-color: @hoverL1;
+                    }
+                    ul.level2 {
+                        li {
+                            width: 100%;
+                            display: block;
+                            a {
+                                margin-bottom: 0px;
+                                font-weight: normal;
+                                .font(14, 2);
+                            }
+                            a:hover {
+                                background-color: @hoverL1;
+                            }
+                        }
+                        li.selected {
+                            a {
+                                background-color: @selectedBG;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+                li.selected {
+                    background-color: @menuBg;
+                    a {
+                        background-color: @menuBg;
+                        color: #000;
+                    }
+                    ul.level2 {
+                        background-color: @selectedLiBg;
+                        li {
+                            a {
+                               background-color: @menuBg;
+                               color: #222;
+                            }
+                            a:hover {
+                                 background-color: @hoverL1;
+                            }
+                        }
+                        li.selected {
+                            background-color: @selectedLiBg;
+                            a {
+                                background-color: @selectedBG;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+                ul.serviceMenu {
+                    li {
+                        width: 100%;
+                        display: block;
+                        a {
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+            }
+
+            ul.languageSelect {
+                position: absolute;
+                right: 20px;
+                li {
+                    float: left;
+                    display: block;
+                    a {
+                        padding: 7px 12px;
+                        font-size: .9em;
+                        text-decoration: none;
+                    }
+                    a:hover, a:focus {
+                        background-color: #e2e3e4;
+                        text-decoration: underline;
+                    }
+                }
+
+                li.selected {
+                    padding: 7px 12px;
+                    font-size: .9em;
+                    background-color: #e2e3e4;
+                }
+            }
+
+            ul.languageSelect:after {
+                clear: both;
+                content: " ";
+                display: block;
+            }
+        }
+    }
+
+    .menu {
+        float: left;
+        margin-left: 10px;
+        z-index: @menuBtn;
+        position: relative;
+        .menuButton {
+            text-align: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(150,152,154,1.00);
+            background-image: url(../img//menuIcon.png);
+            background-repeat: no-repeat;
+            background-position: center 2px;
+            background-size: 100%;
+			cursor: pointer;
+            span {
+                display: block;
+            }
+        }
+
+        .menuButton:hover {
+            background-color: rgba(100,102,104,1.00);
+        }
+
+        .menuButton.active {
+            background-color: #aaa;
+        }
+
+        .menuButtonTxt {
+            font-size: 0.75em;
+            padding-top: 3px;
+            text-align: center;
+            margin-top: 1px;
+            line-height: 1em;
+        }
+    }
+
+    .breadContainer {
+        margin-left: 10px;
+        padding-left: 10px;
+        padding-top: 3px;
+        border-left: 1px solid @darkGrey;
+        float: left; 
+        .titleContainer {
+            h1 {
+                font-size: 1.8em;
+            }
+            a {
+                font-size: 1.8em;
+                color: rgb(86, 86, 86);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+        .breadCroumbs {
+            font-size: 0.8em;
+            ul {
+                list-style-type: none;
+                li {
+                    float: left;
+                    margin: 0px;
+                    padding: 0px;
+                    font-size: 13px;
+                    line-height: 1.1em;
+                    a {
+                        text-decoration: none;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                    li:after {
+                        content: "/";
+                        color: rgb(204, 204, 204);
+                        padding-right: 5px;
+                    }
+            }
+        }
+    }
+
+    .logoContainer {
+        float: right;
+        width: 200px;
+        position: relative;
+        #logo {
+            width: 300px/1.7;
+            height: 84px/1.7;
+            background-image: url(../img//logo.png);
+            background-size: contain;
+            background-position: top right;
+            background-repeat: no-repeat;
+        }
+    }
+}
