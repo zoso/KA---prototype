@@ -1,5 +1,4 @@
 .clearfix {
-// http://nicolasgallagher.com/micro-clearfix-hack/
     *zoom: 1; // for oldIE
 
     &:before,
@@ -74,6 +73,106 @@
     padding-bottom: e(%("%sem%s", (((@paddingbottom*@defaultlineheight)-@borderbottom)/@defaultfontsize)*1, `@{borderbottom}>=1?'; border-bottom-width: @{border-bottom-width}':''` ));
 }
 
+.fixColor(@col) {
+    h1, h2, h3, h4, p, li {
+        color: @col;
+    }
+}
+
+/* theme - switch */
+.tileTheme(@dir) when (@dir = dark) {
+    .tileName {
+        color: #fff;
+    }
+    .tileContent {
+        background: #000;
+        bottom: 0;
+        .background-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.8));
+        span {
+            .fixColor(#fff);
+        }
+    }
+    .tileLink:hover { 
+        background-color: rgba(0,0,0,0.5); 
+        box-shadow: 0 0 60px 2px rgba(0,01,0,0.10) inset;
+    }
+}
+
+.tileTheme(@dir) when (@dir = light) {
+    background-color: #000;
+    .tileName {
+        color: #000;
+    }
+    .tileContent {
+        /*background: #000;*/
+        bottom: 0;
+        .background-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.8));
+        span {
+            .fixColor(#000);
+        }
+    }
+    .tileLink:hover { 
+        background-color: rgba(255,255,255,0.5); 
+        box-shadow: 0 0 60px 2px rgba(255,255,255,0.10) inset;
+    }
+}
+
+.tileTheme(@dir) when (@dir = blue) {
+    background-color: @lightBlue;
+    .tileName {
+        color: #fff;
+        display: none;
+    }
+    .tileContent {
+        /*background: #000;*/
+        background: none;
+        top: 20px;
+        span {
+            .fixColor(#fff);
+        }
+    }
+    .tileLink:hover {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+/*.tileTheme(@dir) when (@dir = top) {
+    background: #bb0011;
+}*/
+/*
+
+.dark {
+    color: #fff;
+    .tileContent {
+        background: #000;
+        bottom: 0px;
+        .background-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.8));
+        span {
+            color: #fff;
+        }
+    }
+}
+
+.light {
+    color: #000;
+    .tileContent {
+        background: #fff;
+        bottom: 0px;
+        .background-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.8));
+        span {
+            color: #000;
+        }
+    }
+    a.tileLink:hover {
+
+        background-color: rgba(255,255,255,0.2); 
+        box-shadow: 0 0 60px 2px rgba(255,255,255,0.10) inset;
+    }
+}
+
+
+*/
 /*h1 {
  .font(48,25);
 }*/

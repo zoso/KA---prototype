@@ -29,7 +29,7 @@
 
 blockquote { 
     font-family:inherit;
-    background-image:url(../img/quoteSign.png);
+    background-image:url(../img/quoteSign_bright.png);
     background-position: 45px left;
     background-repeat:no-repeat;
     background-size: 24px;
@@ -105,10 +105,10 @@ blockquote {
     left:0;
     transition: background @transTime ease-in;
 }
-.tile:hover .tileLink { 
+/*.tile:hover .tileLink { 
     background-color: rgba(0,0,0,0.5); 
     box-shadow: 0 0 60px 2px rgba(0,01,0,0.10) inset;
-}
+}*/
 
 .tile1x1 {
     width: @height;
@@ -168,7 +168,7 @@ blockquote {
     }
 }
 
-#focusArea {
+#focusArea3 {
     /* tile types: 4x2, 2x2 */
     position: relative;
     .tile {
@@ -234,6 +234,20 @@ blockquote {
 
 }
 
+#focusArea {
+    .tile1x1 {
+
+    }
+    .tile1x1.dark {
+
+    }
+    .tile1x1.light {
+
+    }
+    
+
+}
+
 
 .pageHeadImage {
     .tileImg {          
@@ -277,6 +291,23 @@ blockquote {
             margin: 0.7em 0px 0px;
         }
     }
+}
+
+/* test themes */
+.tileBlue {
+    .tileTheme(blue);
+}
+.tileDark {
+    .tileTheme(dark);
+}
+.tileLight {
+    .tileTheme(light);
+}
+.tileImage {
+    .tileTheme(image);
+}
+.tileQuote {
+
 }
 
 /* black & white */
