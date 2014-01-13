@@ -310,6 +310,71 @@ blockquote {
 
 }
 
+/* imageTile - with text/qoute */
+.tile4x2.left {
+    display: block;
+    .tileContent {
+        background-color: #000;
+        color: #fff;
+        top: 0;
+        bottom: auto;
+        left: 30px;
+        right: auto;
+        width: 340px;
+        .font(16, 20);
+        display: inline-block;
+        span {
+            padding: 20px;
+            p {
+                /*.font(14, 14);*/
+            }
+        }
+    }
+}
+.tile4x2.right {
+    .tileContent {
+        background-color: #000;
+        color: #fff;
+        top: 0;
+        right: 30px;
+        left: auto;
+        bottom: auto;
+        width: 340px;
+        .font(16, 20);
+        display: inline-block;
+        span {
+            padding: 20px;
+            p {
+                /*.font(14, 14);*/
+            }
+        }
+    }
+}
+.tile4x2.dark {
+    .tileContent {
+        background: none;
+        span {
+            color: #000;
+            padding: 30px;
+        }
+    }
+}
+.tile4x2.light {
+    .tileContent {
+        background: none;
+        span {
+            color: #fff;
+            padding: 30px;
+        }
+    }
+}
+
+
+/*.tile:before, .tile:after {
+    content:'';
+    content: none;
+}*/
+
 /* black & white */
 .dark {
     color: #fff;
@@ -340,65 +405,7 @@ blockquote {
     }
 }
 
-.blue {
-    color: #fff;
-    background: @lightBlue;
-    .tileContent {
-        position: absolute;
-        top: auto;
-        bottom: 0px;
-        background: @lightBlue;
-        text-align: left;
-    }
-    .tileName {
-        display: none;
-    }
-}
 
-.blueSquare {
-    color: #fff;
-    .tileContent {
-        position: absolute;
-        left: 20px;
-        bottom: 20px;
-        background: @lightBlue;
-        padding: 40px;
-        .square(220px);
-        opacity: 0.9;
-    }
-}
-
-.blueOverlay {
-    color: #fff;
-    .tileContent {
-        position: absolute;
-        background: @lightBlue;
-        padding: 40px;
-        width: @height2x - 120;
-        opacity: 0.9;
-    }
-}
-
-.blueInfo {
-    color: #fff;
-    background: @lightBlue;
-    .tileName {
-        display: none;
-    }
-    .tileContent {
-        position: relative;
-        li {
-            font-size: 0.5em;
-        }
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    }
-}
 .hidden { display:none; }
 .video_tile {
     position: relative;
