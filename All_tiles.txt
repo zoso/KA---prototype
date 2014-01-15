@@ -1,0 +1,71 @@
+1x1
+Type:
+	- image/text
+		- theme: dark/light
+	- text
+		- theme: light/blue
+	- image/text
+		- theme: dark/light? (just heading and image)
+	- image
+		- theme: no theme
+	- form (text) (ex subscribe)
+		- theme: light
+	- image/text "call to action" (ex download) 
+		- theme: light
+	(- map)
+
+2x1
+Type:
+	- quote (img + quote-text)
+		- theme: light
+	- iframe
+		- theme: no theme
+	- text 
+		- theme: light/blue
+	- pressrelease
+		- theme: light
+	- image/text
+		- theme: dark/light
+
+2x2
+Type:
+	- image/text
+		- theme: blue (box)
+	- image
+		- theme: no theme
+	- text/button
+		- theme: blue (+btn)
+
+3x2
+Type:
+	- image/text/video
+		- theme: blue (box 40% width)
+	- pressrelease
+		- theme: light
+
+4x2
+Type:
+	- image/text
+		- theme: light/dark
+	- quote (img + quote-text)
+		- light/dark
+		- left/right
+
+
+--------------------
+
+Containers:
+	- #focusArea
+	- .pageHeader
+
+--------------------
+Usage:
+	<div class="tile tile1x1 ">
+		<div class="tileName"></div>
+		<div class="tileImg"></div>
+		<div class="tileContent">
+			<span>
+			</span>
+		</div>
+		<a href="#" class="tileLink"></a>
+	</div>

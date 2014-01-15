@@ -64,6 +64,7 @@ blockquote {
     outline: 1px solid #fff;
     float: left;
     overflow: hidden;
+    .font(16, 16);
     .tileName {
         position: absolute;
         top: 5px;
@@ -83,18 +84,40 @@ blockquote {
         position: absolute;
         bottom: 0px;
         left: 0px;
-        padding: 10px 0 10px 0;
-        font-size: 1.8em;
-        line-height: 100%;
+        top: auto;
+        right: auto;
         width: 100%;    
         span {
-            display: inline-block;
-            padding: 0 10px 0 10px;
+            display: block;
+            padding: 20px 30px;
+            font-size: 24px;
+            line-height: 110%;
+            font-family: inherit;
+            font-weight: bold;
+            color: inherit;
+            text-rendering: optimizelegibility;
+            a {
+                color: inherit;
+                text-decoration: none;
+                margin-top: 10px;
+                display: block;
+                /*padding: 10px 18px;*/
+            }
+            a:before {
+                content: ""; 
+                display: inline-block; 
+                border:0.35em solid transparent; 
+                border-left-color: #fff; 
+            }
+            a:before {
+                border-left-color:#fff;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
         }
     }
-    a {
-        text-decoration: none;
-    }
+    
 }
 .tileLink { 
     display:block; 
@@ -145,316 +168,141 @@ blockquote {
     max-height: 512px;
 }
 
-.tileProduct {
+/*.tileProduct {
     width: 20%;
     height: 210px;
     .tileContent {
         font-size: .9em;
     }
-}
+}*/
 
 
 /* themes */
-#focusArea2{
-    /* tile types: 1x1, 2x2, 3x2, 2x1 */
-    .tile {
-    
-    }
-    .tileImage.light {
-
-    }
-    .tileImage.dark {
-
-    }
-}
-
-#focusArea3 {
-    /* tile types: 4x2, 2x2 */
-    position: relative;
-    .tile {
-        color: #fff;
-        background: @lightBlue;
-    }
-    .tileName {
-        display: none;
-    }
-    .tile2x2 {
+/*#focusArea {*/
+    .tile2x2.image.dark {
         .tileContent {
-            .tileContentWidth(512px, 30); //
+            /*bottom: auto;
+            top: auto;*/
             color: #fff;
-            background-color: rgba(70, 157, 201, 1);
-            /*padding: 20px 40px 30px;*/
-            margin: 20px;
-            /*right: 30px;*/
-            span {
-                padding: 20px;
-                p,li {
-                    .font(10, 14);
-                }
-            }
+            left: 30px;
+            bottom: 30px;
+            background: @lightBlue;
+            .tileContentWidth(512px, 30);
         }
     }
-    .tileImage {
+    .tile4x2.image.dark {
         .tileContent {
-            .tileContentWidth(512px, 30); //
+            background: none;
             color: #fff;
-            background-color: rgba(70, 157, 201, 0.9);
-            /*padding: 20px 40px 30px;*/
-            margin: 30px;
-            /*right: 30px;*/
+        }
+    }
+    .tile2x1.image.dark,
+    .tile1x1.image.dark {
+        .tileTheme(darkImage);
+    }
+    .tile4x2.image.light {
+        .tileContent {
+            background: none;
+            color: #222;
+        }
+    }
+    .tile2x2.image.light,
+    .tile2x1.image.light,
+    .tile1x1.image.light {
+        .tileTheme(lightImage);
+    }
+    .tile3x2.dark,
+    .tile2x1.dark,
+    .tile1x1.dark {
+        .tileTheme(dark);
+    }
+    .tile2x2.dark {
+        background: @lightBlue;
+        .tileContent {
+            top: auto;
+            bottom: 0px;
+            background: none;
+            color: #fff;
+        }
+    }
+    .tile3x2.light,
+    .tile2x2.light,
+    .tile2x1.light,
+    .tile1x1.light {
+        .tileTheme(light);
+    }
+    .tile3x2.image {
+        .tileTheme(video);
+    }
+    .tile4x2.left {
+        display: block;
+        .tileContent {
+            background-color: #000;
+            color: #fff;
+            top: 0;
+            bottom: auto;
+            left: 30px;
+            right: auto;
+            width: 340px;
+            .font(16, 20);
+            display: inline-block;
             span {
                 padding: 20px;
                 p {
-                    .font(12);
+                    /*.font(14, 14);*/
                 }
-
             }
         }
     }
-    
-    .tile3x2 {
+    .tile4x2.right {
         .tileContent {
-            .tileContentWidth(100px, 30);
-        }
-    }
-    .tile1x1 {
-        .tileContent {
-            bottom: 0px;
-            left: 0px;
-            margin: 0;
-            width: 100%;
-            .font(18, 20);
-            background-color: transparent;
+            background-color: #000;
+            color: #fff;
+            top: 0;
+            right: 30px;
+            left: auto;
+            bottom: auto;
+            width: 340px;
+            .font(16, 20);
+            display: inline-block;
             span {
-                padding: 10px;
+                padding: 20px;
+                p {
+                    /*.font(14, 14);*/
+                }
             }
         }
     }
-    
-
-}
-
-#focusArea {
-    .tile1x1 {
-
-    }
-    .tile1x1.dark {
-
-    }
-    .tile1x1.light {
-
-    }
-    
-
-}
-
-
-.pageHeadImage {
-    .tileImg {          
-        
-    }
-    .tileContent {
-        position: absolute;
-        bottom: 30px;
-        color: #fff;
-
-    }
-}
-
-.pageHead2x2 {
-    color: #fff;
-    background: @lightBlue;
-    .tileImg {
-        float: right;
-        width: @height*2;
-    }
-    .tileContent {
-        position: absolute;
-        bottom: 30px;
-        left: 0px;
-        color: #fff;
-        width: @height*2;
-        max-width: 512px;
-        span {
-            padding: 30px;  
+    .tile2x1.quote {
+        .tileImg {
+            position: relative;
+            float: left;
+            width: @height*2;
+            height: @height*2;
+            border-right: 1px solid #fff;
         }
-        h1 {
-            /*padding: 0 40px 0 40px;*/
-            font-size: 1.4em;
-            line-height: 110%;
-            margin: 0;
-        }
-        h3 {
-            /*padding: 0 40px 0 40px;*/
-            font-size: .85em;
-            line-height: 110%;
-            margin: 0.7em 0px 0px;
-        }
-    }
-}
-
-/* test themes */
-.tileBlue {
-    .tileTheme(blue);
-}
-.tileDark {
-    .tileTheme(dark);
-}
-.tileLight {
-    .tileTheme(light);
-}
-.tileImage {
-    .tileTheme(image);
-}
-.tileQuote {
-
-}
-
-/* imageTile - with text/qoute */
-.tile4x2.left {
-    display: block;
-    .tileContent {
-        background-color: #000;
-        color: #fff;
-        top: 0;
-        bottom: auto;
-        left: 30px;
-        right: auto;
-        width: 340px;
-        .font(16, 20);
-        display: inline-block;
-        span {
-            padding: 20px;
-            p {
-                /*.font(14, 14);*/
+        .tileContent {
+            position: relative;
+            float: left;
+            width: @height*2 - 1px;
+            height: @height*2 - 20px;
+            margin-top: 20px;
+            font-size: 1em;
+            blockquote {
+                padding: 5px 20px 20px 40px;
+                margin-left: 5px;
+                margin-left: 24px;
             }
         }
-    }
-}
-.tile4x2.right {
-    .tileContent {
-        background-color: #000;
-        color: #fff;
-        top: 0;
-        right: 30px;
-        left: auto;
-        bottom: auto;
-        width: 340px;
-        .font(16, 20);
-        display: inline-block;
-        span {
-            padding: 20px;
-            p {
-                /*.font(14, 14);*/
-            }
+        .tileName {
+            position: absolute;
+            left: (@height*2) + 5px; 
         }
     }
-}
-.tile4x2.dark {
-    .tileContent {
-        background: none;
-        span {
-            color: #000;
-            padding: 30px;
-        }
-    }
-}
-.tile4x2.light {
-    .tileContent {
-        background: none;
-        span {
-            color: #fff;
-            padding: 30px;
-        }
-    }
-}
-
-
-/*.tile:before, .tile:after {
-    content:'';
-    content: none;
-}*/
-
-/* black & white */
-.dark {
-    color: #fff;
-    .tileContent {
-        background: #000;
-        bottom: 0px;
-        .background-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.8));
-        span {
-            color: #fff;
-        }
-    }
-}
-
-.light {
-    color: #000;
-    .tileContent {
-        background: #fff;
-        bottom: 0px;
-        .background-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.8));
-        span {
-            color: #000;
-        }
-    }
-    a.tileLink:hover {
-
-        background-color: rgba(255,255,255,0.2); 
-        box-shadow: 0 0 60px 2px rgba(255,255,255,0.10) inset;
-    }
-}
+/*}*/
 
 
 .hidden { display:none; }
-.video_tile {
-    position: relative;
-    .tileContent {
-        padding: 20px 40px 30px;
-        left: 30px;
-        bottom: 30px;
-        width: 40%;
-        /*height: 42.5%;*/
-        
-        background-color: rgba(70, 157, 201, 0.9);
-        span {
-            color: #fff;
-            padding: 20px;
-        }
-    }
-    a.playButton {
-        margin-top: 10px;
-        display: block;
-        padding: 10px 18px;
-        font-size: .9em;
-        background-color: rgb(0, 107, 183);
-        color: #fff;
-    }
-    a.playButton:hover {
-        text-decoration: underline;
-    }
-
-    a.playButton:before { 
-        content: ""; 
-        display: inline-block; 
-        border:0.35em solid transparent; 
-        border-left-color: #fff; 
-    }
-    a.playButton:before { 
-        border-left-color:#fff; 
-    }
- /*   .tile.bright a.siteLink:before { border-left-color:#666; }*/
-
-}
-
-.download {
-    .tileName {
-        display: none;
-    }
-    .tileContent {
-        text-align: center;
-    }
-}
 
 .subscribe {
     .tileName {
@@ -487,13 +335,6 @@ blockquote {
     }
 }
 
-.image {
-    .tileContent,
-    .tileName {
-        display: none;
-    }   
-}
-
 .iframe iframe {
     width: 100%;
     height: 100%;
@@ -501,33 +342,7 @@ blockquote {
     background: #efefef;
 }
 
-.quote {
-    .tileImg {
-        position: relative;
-        float: left;
-        width: @height*2;
-        height: @height*2;
-        border-right: 1px solid #fff;
-    }
-    .tileContent {
-        position: relative;
-        float: left;
-        width: @height*2 - 1px;
-        height: @height*2 - 20px;
-        margin-top: 20px;
-        font-size: 1em;
-        blockquote {
-            padding: 5px 20px 20px 40px;
-            margin-left: 5px;
-            margin-left: 24px;
-        }
-    }
-    .tileName {
-        position: absolute;
-        left: (@height*2) + 5px; 
-    }
 
-}
 
 @media only screen and (max-width: 767px) {
     .tile1x1 {
@@ -559,20 +374,6 @@ blockquote {
         height: @height;
        /* max-height: 512px/2;*/
     }
-    /*@height: 25%;
-    .focus {
-        width: 100%;
-        height: auto;
-    }*/
-    /*.tile {
-        width: 100%;
-        height: auto; /* IE 8 - not working */
-        /*height: 50%;
-    }
-
-    .big2x {
-        width: @bigTile;
-    }*/
 }
 
 @media only screen and (max-width: 479px) {

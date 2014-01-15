@@ -1,0 +1,10 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,hr,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figure,figcaption,hgroup,menu,footer,header,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0}
+article,aside,canvas,figure,figure img,figcaption,hgroup,footer,header,nav,section,audio,video{display:block}
+.clearfix{*zoom:1}.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both}
+.clear{clear:both}
+.email:after{content:attr(data-domain)}
+.email:before{content:attr(data-user)}
+.domain:before{content:"\0040";}
+.button{display:inline-block;padding:4px 8px;border:1px solid #fff;background-color:#fff}
+.button.large{background-color:#006bb7;border-radius:5px;border:1px solid #888;background-image:linear-gradient(-180deg, #646b73 0, #3b3a3c 100%);margin:16px 0;text-decoration:none;padding:16px;text-align:center;font-size:1.8em;line-height:1em;color:#fff;box-shadow:1px 1px 3px 0 rgba(65,64,66,0.5)}

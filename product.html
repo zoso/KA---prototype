@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Product</title>
+	<style>
+		.imgContainer {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+			/*transition: background 0.5s linear;*/
+			/*transition: opacity 1s ease-in-out;*/
+			overflow: hidden;
+		}
+		.imgContainer.transparent {
+			opacity: 0;
+		}
+		.imgNav {
+			z-index: 3;
+			background-color: #fff;
+			position: absolute;
+			width: 100%;
+
+		}
+		.imgNav .loadPrev {
+			float: left;
+			width: 30%;
+		}
+		.img .loadNext {
+			float: right;
+			width: 30%;
+		}
+		.imgNav .status {
+			float:left;
+			display: inline-block;
+			width: 10%;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="top" class="wrapper">
+		<div class="menuContainer">
+			<nav id="mainNav" style="display: none;" class="wrapper">
+				<ul class="languageSelect">
+					<li><a class="selected" href="#">English</a></li>
+					<li><a href="#">中国的</a></li>
+					<li><a href="#">français</a></li>
+				</ul>
+				<ul class="level1">
+					<li class="open">
+						<a href="landingPage_products-and-services.html">Products &amp; Services - s</a>
+						<ul class="level2">
+							<li><a href="#">Commercial Vehicles</a></li>
+							<li class="selected"><a href="#">Passenger Cars - s</a></li>
+							<li><a href="#">Off-Highway Vehicles</a></li>
+							<li><a href="#">Aftermarket</a></li>
+							<li><a href="#">Power Electronics</a></li>
+							<li><a href="#">For our Suppliers</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="landingPage_careers.html" class="">Careers</a>
+						<ul class="level2">
+							<li><a href="#">Our People</a></li>
+							<li><a href="#">Management Programs</a></li>
+							<li><a href="#">Possibilities within KA</a></li>
+							<li><a href="#">Career Development</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="landingPage_innovation.html">Innovation</a>
+						<ul class="level2">
+							<li><a href="#">Case Studies</a></li>
+							<li><a href="#">Out Methodology</a></li>
+							<li><a href="#">Centers of Expertise</a></li>
+							<li><a href="#">Patent Management</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="landingPage_investor-relations.html">Investor Relations</a>
+						<ul class="level2">
+							<li class=""><a href="#">Annual General Meeting</a></li>
+							<li><a href="#">Board &amp; Management</a></li>
+							<li><a href="#">Corporate Governance</a></li>
+							<li><a href="#">Events &amp; Presentations</a></li>
+							<li><a href="#">Reports</a></li>
+							<li><a href="#">Shareholders</a></li>
+						</ul>
+					</li>
+					<li>
+						<ul class="serviceMenu">
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Media &amp; News</a></li>
+							<li><a href="#">Contact us</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="menu">
+			<div class="menuButton"></div>
+			<div class="menuButtonTxt">MENU</div>
+		</div>	
+		<div class="breadContainer">
+			<div class="titleContainer">Title</div>
+			<div class="breadCroumbs">
+				<ul>
+					<li><a href="#">Path 1</a></li>
+					<li><a href="#">Path 2</a></li>
+					<li><a href="#">Path 3</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="logoContainer">
+			<a href="#">
+				<div id="logo"></div>
+			</a>
+		</div>
+	</div>
+	<!-- focusArea -->
+	<div id="focusArea" class="products">
+		<div class="imgMenu wrapper">
+			<div class="imgNav">
+				<div class="loadPrev">
+					<a href="#">Prev</a>
+				</div>
+				<div class="status"></div>
+				<a class="changeAnimate" href="#">Animate</a>
+				<div class="loadNext">
+					<a href="#">Next</a>
+				</div>
+			</div>
+		</div>
+		<div class="imgContainer">
+			
+		</div>
+	</div>
+	<!-- content -->
+	<div id="toTop" style="display:none;"><a href="#">To top</a></div>
+	<div class="wrapper clearfix">
+		<div class="pageHeader clearfix">
+			<!-- <div class="headerContent">
+				<h1>Contact us</h1>		
+			</div> -->
+			<div class="tile tile4x2 image dark">
+				<div class="tileName"></div>
+				<div class="tileImg">
+					<img src="img/volvo02.jpg" alt="">
+				</div>
+				<div class="tileContent">
+					<span>
+						<h1>Kongsberg Automotive</h1>
+						<h3>Dyrmyrgata 48, P.O.Box 62,<br>3601 Kongsberg<br>Norway</h3>
+						<h3>Phone: +47-32-77-05-00</h3>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="textBlock clearfix">
+			
+		</div>
+		
+		<!-- </section> -->
+	</div>
+	<div class="subNav clearfix">
+		<div class="wrapper">
+			<ul>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+				<li><a href="#">nav</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- footer -->
+	<div id="footer" class="clearfix">
+		<div class="topFooter">
+			<div class="wrapper">
+				<div class="contact">
+					<strong>Kongsberg Automotive</strong>
+					<br>
+					N-3611 Kongsberg Norway
+					<br>
+					Tel: <a href="tel:+4732770500">+4732770500</a>
+					<br>
+					Fax: +4732770509
+				</div>
+				<div class="about">
+					<p>
+						Kongsberg Automotive provides world class products to the global vehicle industry. Our products enhance the driving experience, making it safer, more comfortable and sustainable.		
+					</p>
+						We are PASSIONATE, ACCOUNTABLE, PREPARED
+				</div>
+				<div class="social">
+					FOLLOW US:
+					<br>
+					<img src="img/FB_FindUsOnFacebook-320.png" alt="Find us on facebook" width="50%" height="50%">
+					<br>
+					<img src="img/LinkedIn-Logo-2C (320).png" alt="Find us on LinkedIn" width="50%" height="50%">
+				</div>
+			</div>
+		</div>
+		<div class="langFooter">
+			<div class="wrapper">
+				<ul class="languageSelect clearfix">
+					<li><a class="selected" href="#">English</a></li>
+					<li><a href="#">中国的</a></li>
+					<li><a href="#">français</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="js/script.js"></script>
+<script>
+	$(document).ready(function($) {
+		function log(m) {
+			window.console && console.log("log: " + m);// || alert("log: "+m); 
+		}
+
+		var images = [
+			'KA-by-night.jpg',
+			'volvo02.jpg',
+			'masthead.jpg',
+			'1145_KA_TruckRender_reduced_extended.jpg'
+		];
+		var ImageSlider = {
+			current: 0,
+			nrOfImg: 0,
+			path: 'img/',
+			container: '.imgContainer',
+			status: '.status',
+			animate: false,
+			init: function() {
+				this.nrOfImg = images.length;
+				//load first image
+				this.changeImage();
+				log(images.length);
+			},
+			change: function(dir) {
+				switch(dir) {
+					case '<':
+						this.current = this.current-1;
+						break;
+					case '>':
+						this.current = this.current+1;
+						break;
+				}
+				if (this.animate) {
+					$(this.container).animate({
+						opacity: 0,
+						'background-size': '100%'
+					},
+					500, function() {
+						ImageSlider.changeImage();	
+					});
+				} else {
+					this.changeImage();
+				}
+				
+			},
+			changeImage: function() {
+				
+				if (this.current >= this.nrOfImg) {
+					this.current = 0;
+				}
+				if (this.current < 0) {
+					this.current = this.nrOfImg-1;
+				}
+				$(this.container).css({
+					'background-image': 'url('+this.path+images[this.current]+')'
+				});
+				if (this.animate) {
+					$(this.container).animate({
+						opacity: 1,
+						'background-size': '110%'
+
+					}, 500);
+				}
+				
+
+				$(this.status).html((this.current+1)+'/'+this.nrOfImg);
+			}
+		}
+		ImageSlider.init();
+		$('.loadPrev a').click(function(e) {
+			e.preventDefault();
+			ImageSlider.change('<');
+		});
+		$('.loadNext a').click(function(e) {
+			e.preventDefault();
+			ImageSlider.change('>');
+		});
+		$('.imgNav a.changeAnimate').click(function(e) {
+			e.preventDefault();
+			ImageSlider.animate ? ImageSlider.animate = false : ImageSlider.animate = true;
+			log("animate: "+ImageSlider.animate);
+		});
+	});
+
+</script>
+</html>

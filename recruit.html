@@ -190,6 +190,7 @@
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="js/script.js"></script>
 <script src="js/Recruit_v0.2.js"></script>
+<script src="js/froogaloop.min.js"></script>
 <script>
 	window.onload = function() {
 		/*log("Window loaded");*/
@@ -213,6 +214,7 @@
 				}
 			},
 			setHeight: function(el) {
+				/* TO DO! RESPONSIVE */
 				if ($(el).height() != null) {
 					$(".wrapper").children().find($(el)).each(function(i) {
 						var str = $(this).parentsUntil('tile').attr('class');
@@ -230,39 +232,18 @@
 			}
 		}
 		IframeCheck.init();
-		/*var frameContainer;
-		var isIFrameFound = false;
-		
-		if ($(".videoHolder iframe").length == 0) {
-			log("no iframe");
-		} else {
-			log("iframe found");
-		}
-*/
 
-
-		/*if (frameContainer.height() != null) {
-		    $(".wrapper").children().find(".videoHolder").each(function (i) {
-		        var str = $(this).parent().attr('class');
-		        //console.log("frame: " + str);
-		        if (str.indexOf("tile2x1") >= 0) {
-		            $(this).children('iframe').height('256px');
-		        } else if (str.indexOf("tile2x2") >= 0) {
-		            $(this).children('iframe').height('512px');
-		        } else if (str.indexOf("tile3x2") >= 0) {
-		            $(this).children('iframe').height('512px');
-		        } else {
-		            //console.log("no match");
-		        }
-		    });
-		}*/
+		/* vimeo */
+		var iframe = $('#OneKAFilm')[0],
+	    player = $f(iframe),
+	    /*status = $('.status');*/
 
 		$("a.playButton").click(function(e) {
-
 			$(".tileRow").children().find('.videoHolder').each(function() {
 				$(this).removeClass("hidden");
 				$(this).nextAll().addClass('hidden');
 			});
+			player.api('play');
 		});
 
 		var jobs = {"Positions":[{"Title":"Plant Manager","Url":"https://ka.easycruit.com/vacancy/1098855/93391","Department":"United Kingsdom (Normanton) - Kongsberg Actuation Systems Ltd","Location":"Normanton, UK","ClosingDate":"15 January 2014"},{"Title":"Assistant Chief Engineer","Url":"https://ka.easycruit.com/vacancy/1102067/87533","Department":"RnD - Sweden, Mullsjø","Location":"Mullsjö (Sweden)","ClosingDate":"15th January 2014"},{"Title":"Design Engineer ePower ","Url":"https://ka.easycruit.com/vacancy/1097409/87533","Department":"RnD - Sweden, Mullsjø","Location":"Mullsjö (Sweden)","ClosingDate":""},{"Title":"Automation Engineer","Url":"https://ka.easycruit.com/vacancy/1098907/6996","Department":"Poland - Kongsberg Automotive Sp.z.o.o.","Location":"Pruszkow","ClosingDate":"31 of January"},{"Title":"Global Commodity Buyer Electronics","Url":"https://ka.easycruit.com/vacancy/1070485/87553","Department":"Purchasing - Sweden, Göteborg","Location":"Gothenburg (Sweden)","ClosingDate":"2013-11-30"},{"Title":"Applications Engineering Manager","Url":"https://ka.easycruit.com/vacancy/1108599/93481","Department":"USA (Easley - South Carolina)","Location":"Easley, SC","ClosingDate":"07 Feb 2014"},{"Title":"Human Resource Business Partner","Url":"https://ka.easycruit.com/vacancy/1108605/93481","Department":"USA (Easley - South Carolina)","Location":"Easley, South Carolina USA","ClosingDate":"7 February 2014"},{"Title":"Trainees Sweden","Url":"https://ka.easycruit.com/vacancy/1073701/87537","Department":"Trainee - Sweden, Mullsjø","Location":"Mullsjö/Gothenburg, Sweden","ClosingDate":"1 March 2014"},{"Title":"Trainee Norway","Url":"https://ka.easycruit.com/vacancy/1067135/6998","Department":"Norway, Kongsberg","Location":"","ClosingDate":"28.02.2014"}]}
