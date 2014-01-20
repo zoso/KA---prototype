@@ -29,7 +29,7 @@
 
 blockquote { 
     font-family:inherit;
-    background-image:url(../img/quoteSign_bright.png);
+    background-image:url(/Styles/gfx/quoteSign_bright.png);
     background-position: 45px left;
     background-repeat:no-repeat;
     background-size: 24px;
@@ -47,7 +47,7 @@ blockquote {
     position:absolute;
     right:0;
     bottom:0;
-    background-image:url(../img/knekken.png);
+    background-image:url(/Styles/fx/knekken.png);
     background-size:100%;
     z-index: 50;
 }
@@ -168,18 +168,52 @@ blockquote {
     max-height: 512px;
 }
 
-/*.tileProduct {
-    width: 20%;
-    height: 210px;
-    .tileContent {
-        font-size: .9em;
+.tileProduct {
+    position: relative;
+    background: #efefef;
+    outline: 1px solid #ccc;
+    float: left;
+    overflow: hidden;
+    width: 18%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    /*height: 210px;*/
+    .tileName {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        z-index: 1;
+        font-size: 0.8em;
+    }       
+    .tileImg img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-width: 0px;
+        vertical-align: middle;
     }
-}*/
+    .tileContent {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        top: auto;
+        right: auto;
+        width: 100%;
+        background-color: #ccc;
+        span {
+            display: block;
+            padding: 10px;
+            .font(24,24);
+        }
+    }
+}
 
 
 /* themes */
 /*#focusArea {*/
-    .tile2x2.image.dark {
+    .tile2x2.image.dark,
+    .tile2x2.tileImage {
         .tileContent {
             /*bottom: auto;
             top: auto;*/
@@ -188,6 +222,11 @@ blockquote {
             bottom: 30px;
             background: @lightBlue;
             .tileContentWidth(512px, 30);
+            span {
+                > a {
+                    color: #fff;
+                }
+            }
         }
     }
     .tile4x2.image.dark {
@@ -299,8 +338,37 @@ blockquote {
             left: (@height*2) + 5px; 
         }
     }
+    .tile4x2.pageHead2x2 {
+        background: @lightBlue;
+        .tileImg {
+            width: 50%;
+            float: right;
+        }
+        .tileContent {
+            width: 50%;
+            float: left;
+            color: #fff;
+        }
+    }
+    .tile4x2.pageHead2x2.light {
+
+    }
+    .tile4x2.pageHead2x2.dark {
+
+    }
 /*}*/
 
+/* page header */
+/*.tileRow {
+    .tile4x2 {
+        .tileImg {
+            
+        }
+        .tileContent {
+
+        }
+    }
+}*/
 
 .hidden { display:none; }
 

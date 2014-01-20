@@ -29,16 +29,16 @@
 		}
 		.imgNav .loadPrev {
 			float: left;
-			width: 30%;
+			width: 33%; 
 		}
-		.img .loadNext {
+		.imgNav .loadNext {
 			float: right;
-			width: 30%;
+			width: 33%;
+			text-align: right;
 		}
 		.imgNav .status {
 			float:left;
-			display: inline-block;
-			width: 10%;
+			width: 34%;
 			text-align: center;
 		}
 	</style>
@@ -130,8 +130,11 @@
 				<div class="loadPrev">
 					<a href="#">Prev</a>
 				</div>
-				<div class="status"></div>
-				<a class="changeAnimate" href="#">Animate</a>
+				<div class="status">
+					<p></p>
+					<a class="changeAnimate" href="#">Animate (off)</a>
+				</div>
+				
 				<div class="loadNext">
 					<a href="#">Next</a>
 				</div>
@@ -229,6 +232,7 @@
 
 		var images = [
 			'KA-by-night.jpg',
+			'truck-fullcolor.png',
 			'volvo02.jpg',
 			'masthead.jpg',
 			'1145_KA_TruckRender_reduced_extended.jpg'
@@ -237,15 +241,22 @@
 			current: 0,
 			nrOfImg: 0,
 			path: 'img/',
+			images: [],
 			container: '.imgContainer',
 			status: '.status',
 			animate: false,
-			init: function() {
+			animationSpeed: 500,
+			changeBackgroundCol: false,
+			init: function(arr) {
+				this.images = arr;
 				this.nrOfImg = images.length;
-				//load first image
 				this.changeImage();
-				log(images.length);
 			},
+			buttons: [
+	            'loadPrev',
+	            'loadNext',
+	            '.imgNav a.changeAnimate'
+		    ],
 			change: function(dir) {
 				switch(dir) {
 					case '<':
@@ -257,10 +268,9 @@
 				}
 				if (this.animate) {
 					$(this.container).animate({
-						opacity: 0,
-						'background-size': '100%'
-					},
-					500, function() {
+						opacity: 0/*,
+						'background-size': 'cover'*/
+					},this.animationSpeed, function() {
 						ImageSlider.changeImage();	
 					});
 				} else {
@@ -269,29 +279,43 @@
 				
 			},
 			changeImage: function() {
-				
 				if (this.current >= this.nrOfImg) {
 					this.current = 0;
 				}
 				if (this.current < 0) {
 					this.current = this.nrOfImg-1;
 				}
+
 				$(this.container).css({
 					'background-image': 'url('+this.path+images[this.current]+')'
 				});
 				if (this.animate) {
 					$(this.container).animate({
-						opacity: 1,
-						'background-size': '110%'
+						opacity: 1/*,
+						'background-size': 'cover'*/
 
-					}, 500);
+					}, this.animationSpeed);
 				}
-				
-
-				$(this.status).html((this.current+1)+'/'+this.nrOfImg);
+				 if (this.nrOfImg > 1) {
+		            $(this.status).find('p').html((this.current + 1) + '/' + this.nrOfImg);
+		        } else {
+		            $('.imgNav').css('display', 'none');
+		        }
+		        if (this.changeBackgroundCol) {
+		        	this.changeBgColor();
+		        }
+			},
+			changeBgColor: function() {
+				//check imgformat
+				if (/jpg/i.test(images[this.current])) {
+					$("#focusArea.products").css('background-color', '#fff');
+				} else {
+					$("#focusArea.products").css('background-color', 'rgb(240, 241, 242)');
+				}
 			}
 		}
-		ImageSlider.init();
+		ImageSlider.init(images);
+		
 		$('.loadPrev a').click(function(e) {
 			e.preventDefault();
 			ImageSlider.change('<');
@@ -303,9 +327,8 @@
 		$('.imgNav a.changeAnimate').click(function(e) {
 			e.preventDefault();
 			ImageSlider.animate ? ImageSlider.animate = false : ImageSlider.animate = true;
-			log("animate: "+ImageSlider.animate);
+	    ImageSlider.animate ? $(this).html("Animate (on)") : $(this).html("Animate (off)");
 		});
 	});
-
 </script>
 </html>

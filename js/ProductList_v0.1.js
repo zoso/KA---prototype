@@ -20,7 +20,7 @@ var ProductList = {
 	,
 	createTile: function(data, group) {
 		for (var i = 0; i < data.length; i++) {
-			var str = '<div data-cid="'+data[i].prodid+'" class="tile white tileProduct '+group+'">';
+			var str = '<div data-cid="'+data[i].prodid+'" class="tileProduct">';
 			str += '<div class="tileImg"><img src="'+data[i].img+'"></div>';
 			str += '<div class="tileContent"><span>'+data[i].name+'</span></div>';
 			str += '<a class="tileLink" href="#"></a></div>';
